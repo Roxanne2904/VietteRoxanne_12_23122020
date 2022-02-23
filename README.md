@@ -2,7 +2,7 @@
 
 # SportSee's Project
 *Openclassrooms's training P12.*
-Creating the user's profile Page for the SportSee Application.
+### **Creating the user's profile Page for the SportSee Application.**
 ***
 ## Technologies
 - CSS
