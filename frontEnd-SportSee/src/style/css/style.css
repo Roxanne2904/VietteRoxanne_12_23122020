@@ -8,6 +8,11 @@
 7 Theme
 
 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -15,12 +20,86 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  display: flex;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.test {
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #020203;
+  padding: 19px 29px;
+}
+.header__imgContent {
+  width: 178px;
+}
+.header__imgContent__img {
   display: block;
+  width: 100%;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+.header__nav__ul {
+  width: 100%;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+.header__nav__ul__li {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  cursor: not-allowed;
+}
+.header__nav__ul__li--link {
+  cursor: pointer;
+}
+
+.iconesContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+.iconesContent__icones {
+  cursor: not-allowed;
+  height: fit-content;
+}
+
+.verticalLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 117px;
+  height: 100vh;
+  background-color: #020203;
+}
+.verticalLayout__ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.verticalLayout__copyRights {
+  display: block;
+  color: white;
+  transform: rotate(-90deg);
+  font-size: 12px;
+  width: 120%;
+  position: relative;
+  bottom: 5%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,7 +1,6 @@
 import '../style/css/style.css'
 //Components
 import User from '../Pages/User/index'
-import VerticalLayout from '../Components/VerticalLayout'
 import Header from '../Components/Header/index'
 import Home from '../Pages/Home/index'
 import Settings from '../Pages/Settings/index'
@@ -14,7 +13,6 @@ function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Header />
-      <VerticalLayout />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user/:id" element={<User />} />

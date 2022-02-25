@@ -1,4 +1,11 @@
+import VerticalLayout from '../../Components/VerticalLayout'
+
 function Community() {
-  return <div>je suis sur community</div>
+  return (
+    <main>
+      <VerticalLayout />
+      <div>je suis sur community</div>
+    </main>
+  )
 }
 export default Community

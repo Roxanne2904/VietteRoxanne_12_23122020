@@ -1,4 +1,11 @@
+import VerticalLayout from '../../Components/VerticalLayout'
+
 function Settings() {
-  return <div>je suis sur settings</div>
+  return (
+    <main>
+      <VerticalLayout />
+      <div>je suis sur settings</div>
+    </main>
+  )
 }
 export default Settings

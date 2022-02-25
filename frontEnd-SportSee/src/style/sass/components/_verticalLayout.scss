@@ -1,0 +1,23 @@
+.verticalLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 117px;
+  height: 100vh;
+  background-color: $bgdColor;
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &__copyRights {
+    display: block;
+    color: white;
+    transform: rotate(-90deg);
+    font-size: 12px;
+    width: 120%;
+    position: relative;
+    bottom: 5%;
+  }
+}
