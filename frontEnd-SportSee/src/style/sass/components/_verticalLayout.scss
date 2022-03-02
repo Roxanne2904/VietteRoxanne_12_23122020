@@ -3,9 +3,10 @@
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  width: 117px;
+  max-width: 117px;
   height: 100vh;
   background-color: $bgdColor;
+  width: 10%;
   &__ul {
     display: flex;
     flex-direction: column;

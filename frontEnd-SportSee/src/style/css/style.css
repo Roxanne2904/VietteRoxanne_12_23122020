@@ -8,9 +8,32 @@
 7 Theme
 
 */
+.custom-tooltip {
+  background-color: #e60000;
+}
+
+.h {
+  flex: 1;
+}
+
+.h1 {
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+@font-face {
+  font-family: "robotoregular";
+  src: url("../../asset/font/roboto-regular-webfont.woff2") format("woff2"), url("../../asset/font/roboto-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
+  font-family: "robotoregular";
 }
 
 body {
@@ -83,9 +106,10 @@ code {
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  width: 117px;
+  max-width: 117px;
   height: 100vh;
   background-color: #020203;
+  width: 10%;
 }
 .verticalLayout__ul {
   display: flex;
@@ -100,6 +124,57 @@ code {
   width: 120%;
   position: relative;
   bottom: 5%;
+}
+
+.cardContent {
+  min-width: 258px;
+  min-height: 124px;
+  display: flex;
+  align-items: center;
+  background-color: #fbfbfb;
+  margin-bottom: 39px;
+}
+.cardContent__icone {
+  width: 60px;
+  height: 60px;
+  margin: 0 0 0 32px;
+}
+.cardContent__icone__img {
+  width: 100%;
+}
+.cardContent__infos {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 30px;
+}
+.cardContent__infos__number {
+  font-size: 20px;
+  font-weight: 700;
+}
+.cardContent__infos__name {
+  display: block;
+  font-size: 14px;
+  color: #74798c;
+  margin-top: 5px;
+}
+
+.userContent {
+  margin: 68px 107px;
+  flex: 1;
+}
+.userContent__mainTitle {
+  font-size: 48px;
+}
+.userContent__mainTitle--color {
+  color: #ff0101;
+}
+.userContent__subTitle {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 20px 0;
+}
+.userContent__chartsContent {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,19 @@
+.userContent {
+  margin: 68px 107px;
+  flex: 1;
+
+  &__mainTitle {
+    font-size: $bigSize;
+    &--color {
+      color: $colorPrimary;
+    }
+  }
+  &__subTitle {
+    font-weight: 400;
+    font-size: $smallSize;
+    margin: 20px 0;
+  }
+  &__chartsContent {
+    display: flex;
+  }
+}

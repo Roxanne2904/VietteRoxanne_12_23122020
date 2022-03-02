@@ -5,7 +5,7 @@ function Icones(props) {
       <img
         className="iconesContent__icones"
         src={`${url}`}
-        alt={`${''}icone`}
+        alt={`${name}icone`}
         key={`${name}-${id}`}
       />
     </div>
