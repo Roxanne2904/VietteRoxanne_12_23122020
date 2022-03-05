@@ -1,24 +1,21 @@
-// ---
-.custom-tooltip {
-  background-color: #e60000;
-}
-.h {
-  flex: 1;
-}
-.h1 {
-  background-color: #fbfbfb;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-// ---
 @font-face {
   font-family: 'robotoregular';
   src: url('../../asset/font/roboto-regular-webfont.woff2') format('woff2'),
     url('../../asset/font/roboto-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+// html {
+//   height: 100%;
+// }
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
 }
 
 * {
@@ -34,6 +31,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {

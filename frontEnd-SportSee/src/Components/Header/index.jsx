@@ -1,5 +1,9 @@
-import logo from '../../asset/logo.png'
+import logo from '../../asset/png/logo.png'
 import { Link } from 'react-router-dom'
+/**
+ * Display the header with the navigation.
+ * @return { HtmlElements } Header's component is displayed dynamically.
+ */
 
 function Header() {
   return (
@@ -22,22 +26,8 @@ function Header() {
             </Link>
           </li>
           <li className="header__nav__ul__li">Profil</li>
-          <li>
-            <Link
-              className="header__nav__ul__li header__nav__ul__li--link"
-              to="/settings"
-            >
-              Réglage
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="header__nav__ul__li header__nav__ul__li--link"
-              to="/community"
-            >
-              Communauté
-            </Link>
-          </li>
+          <li className="header__nav__ul__li">Réglage</li>
+          <li className=" header__nav__ul__li">Communauté</li>
         </ul>
       </nav>
     </header>

@@ -11,9 +11,12 @@
   &__subTitle {
     font-weight: 400;
     font-size: $smallSize;
-    margin: 20px 0;
+    margin: 20px 0 100px 0;
   }
-  &__chartsContent {
+  &__performance {
     display: flex;
+    &__BarChart {
+      flex: 1;
+    }
   }
 }

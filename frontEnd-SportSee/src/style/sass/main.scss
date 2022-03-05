@@ -9,12 +9,14 @@
 
 */
 @import "./utils/variables.scss";
+@import "./utils/barChart/mixins.scss";
 //
 @import "./base/base.scss";
 //
 @import "./components/header.scss";
-@import "./components/iconesNav.scss";
+@import "./components/iconeToNavigate.scss";
 @import "./components/verticalLayout.scss";
 @import "./components/infosCard.scss";
+@import "./components/barChart.scss";
 //
 @import "./pages/user.scss";

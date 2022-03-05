@@ -6,9 +6,24 @@
   background-color: $bgdCard;
   margin-bottom: 39px;
   &__icone {
+    display: flex;
+    align-items: center;
     width: 60px;
     height: 60px;
     margin: 0 0 0 32px;
+    border-radius: 6px;
+    &--red {
+      background-color: $colorPrimaryLessOpacity;
+    }
+    &--blue {
+      background-color: $colorBlueLessOpacity;
+    }
+    &--yellow {
+      background-color: $colorYellowLessOpacity;
+    }
+    &--pink {
+      background-color: $colorPinkLessOpacity;
+    }
     &__img {
       width: 100%;
     }
@@ -25,7 +40,7 @@
     &__name {
       display: block;
       font-size: 14px;
-      color: #74798c;
+      color: $colorGrey;
       margin-top: 5px;
     }
   }

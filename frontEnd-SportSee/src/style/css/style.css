@@ -8,28 +8,23 @@
 7 Theme
 
 */
-.custom-tooltip {
-  background-color: #e60000;
-}
-
-.h {
-  flex: 1;
-}
-
-.h1 {
-  background-color: #fbfbfb;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
 @font-face {
   font-family: "robotoregular";
   src: url("../../asset/font/roboto-regular-webfont.woff2") format("woff2"), url("../../asset/font/roboto-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -41,6 +36,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -104,26 +102,25 @@ code {
 .verticalLayout {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
   max-width: 117px;
-  height: 100vh;
   background-color: #020203;
   width: 10%;
 }
 .verticalLayout__ul {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 .verticalLayout__copyRights {
   display: block;
   color: white;
   transform: rotate(-90deg);
   font-size: 12px;
-  width: 120%;
+  width: 130%;
+  margin: 40px;
   position: relative;
-  bottom: 5%;
+  bottom: 7px;
 }
 
 .cardContent {
@@ -135,9 +132,24 @@ code {
   margin-bottom: 39px;
 }
 .cardContent__icone {
+  display: flex;
+  align-items: center;
   width: 60px;
   height: 60px;
   margin: 0 0 0 32px;
+  border-radius: 6px;
+}
+.cardContent__icone--red {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.cardContent__icone--blue {
+  background-color: rgba(74, 184, 255, 0.1);
+}
+.cardContent__icone--yellow {
+  background-color: rgba(249, 206, 35, 0.1);
+}
+.cardContent__icone--pink {
+  background-color: rgba(253, 81, 129, 0.1);
 }
 .cardContent__icone__img {
   width: 100%;
@@ -158,6 +170,76 @@ code {
   margin-top: 5px;
 }
 
+.barChart {
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  width: 90%;
+}
+.barChart__chartLabel {
+  padding: 0 0 65px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.barChart__chartLabel__title {
+  font-size: 15px;
+  margin-left: 15px;
+}
+.barChart__chartLabel__legend {
+  margin-right: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.barChart__chartLabel__legend__weight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+.barChart__chartLabel__legend__weight__icon {
+  display: block;
+  font-size: 0.5rem;
+}
+.barChart__chartLabel__legend__weight__unit {
+  font-size: 14px;
+  margin-left: 15px;
+  color: #74798c;
+}
+.barChart__chartLabel__legend__calories {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+.barChart__chartLabel__legend__calories__icon {
+  display: block;
+  font-size: 0.5rem;
+}
+.barChart__chartLabel__legend__calories__icon--red {
+  color: #e60000;
+}
+.barChart__chartLabel__legend__calories__unit {
+  font-size: 14px;
+  margin-left: 15px;
+  color: #74798c;
+}
+
+.custom-tooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #e60000;
+  margin: 20px;
+  color: white;
+  width: 39px;
+  height: 63px;
+  font-size: 0.5rem;
+}
+
 .userContent {
   margin: 68px 107px;
   flex: 1;
@@ -171,10 +253,13 @@ code {
 .userContent__subTitle {
   font-weight: 400;
   font-size: 18px;
-  margin: 20px 0;
+  margin: 20px 0 100px 0;
 }
-.userContent__chartsContent {
+.userContent__performance {
   display: flex;
+}
+.userContent__performance__BarChart {
+  flex: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

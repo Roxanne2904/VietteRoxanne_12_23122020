@@ -1,24 +1,30 @@
 .verticalLayout {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
   max-width: 117px;
-  height: 100vh;
   background-color: $bgdColor;
   width: 10%;
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // z-index: -1;
   &__ul {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    // justify-content: space-around;
+    // position: relative;
+    // bottom: 20px;
   }
   &__copyRights {
     display: block;
     color: white;
     transform: rotate(-90deg);
     font-size: 12px;
-    width: 120%;
+    width: 130%;
+    margin: 40px;
     position: relative;
-    bottom: 5%;
+    bottom: 7px;
   }
 }

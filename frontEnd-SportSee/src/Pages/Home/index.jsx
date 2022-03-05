@@ -3,7 +3,7 @@ import VerticalLayout from '../../Components/VerticalLayout'
 
 /**
  * Display the Home's page with available profiles to visit.
- * @returns { HtmlElements } Home's component displayed dynamically.
+ * @returns { HtmlElements } Home's component is displayed dynamically.
  */
 
 function Home() {

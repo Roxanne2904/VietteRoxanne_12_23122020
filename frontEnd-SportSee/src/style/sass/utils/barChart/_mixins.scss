@@ -1,0 +1,16 @@
+@mixin unitPattern {
+  font-size: $XsmallSize;
+  margin-left: 15px;
+  color: $colorGrey;
+}
+
+@mixin iconPattern {
+  display: block;
+  font-size: $XXsmalSize;
+}
+@mixin weigthAndCaloriesPattern {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+}
