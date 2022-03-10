@@ -8,6 +8,71 @@
 7 Theme
 
 */
+.test {
+  background-color: #ff0101;
+  width: 30%;
+  height: 263px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.test0 {
+  position: absolute;
+  top: 0;
+}
+
+.test01 {
+  color: black;
+  background-color: white;
+}
+
+.test00 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.test02 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  color: white;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.lineChart__title {
+  max-width: 50%;
+  font-size: 15px;
+  padding: 29px 0 0 34px;
+  color: white;
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.radarChart {
+  background-color: #282d30;
+  width: 30%;
+  height: 263px;
+}
+
+.charts {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.radial {
+  position: relative;
+  background-color: #fbfbfb;
+  width: 30%;
+  height: 263px;
+}
+
 @font-face {
   font-family: "robotoregular";
   src: url("../../asset/font/roboto-regular-webfont.woff2") format("woff2"), url("../../asset/font/roboto-regular-webfont.woff") format("woff");
@@ -227,7 +292,7 @@ code {
   color: #74798c;
 }
 
-.custom-tooltip {
+.custom-Bartooltip {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

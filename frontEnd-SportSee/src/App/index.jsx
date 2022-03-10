@@ -3,22 +3,20 @@ import '../style/css/style.css'
 import Header from '../Components/Header/index'
 import Home from '../Pages/Home/index'
 import UserDatas from '../Modelization/UsersDatas/UserDatas'
-//context
-import { UsersDatasProvider } from '../Modelization/UsersDatas/UserDatasContext'
-
+import Error from '../Pages/Error'
 //Router
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <UsersDatasProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/user/:id" element={<UserDatas />} />
-        </Routes>
-      </UsersDatasProvider>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user/:id" element={<UserDatas />} />
+        <Route path="/user/:id/error" element={<Error />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
     </Router>
   )
 }

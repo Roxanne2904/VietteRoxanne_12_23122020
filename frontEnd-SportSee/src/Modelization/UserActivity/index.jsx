@@ -1,4 +1,4 @@
-import Barchart from '../../Components/BarChart'
+import Barchart from '../../Components/Barchart'
 import { useFetch } from '../../service/useFetch/index'
 import isMockedDatas from '../../service/handleURL'
 //import { formatUnit } from '../../CustomFormat'
@@ -15,20 +15,27 @@ UserActivity.propTypes = {
 
 function UserActivity({ userId }) {
   // console.log(userId)
-  const userResponse = useFetch(isMockedDatas(false, userId, 'userActivity'))
-  const { datas } = userResponse
-
+  const fetchResponse = useFetch(isMockedDatas(false, userId, 'userActivity'))
+  const { datas, isLoading, error } = fetchResponse
+  const { data } = datas !== undefined && datas
   // console.log(datas.data)
   // console.log(userResponse.error)
+  // console.log(data)
 
-  return datas.data !== undefined ? (
-    <Barchart datas={datas.data} />
-  ) : (
-    <div>
-      Oups! Nous en pouvons pas vous afficher les informations pour le moment...
-      <button onClick={() => window.location.reload()}>cliquez moi !</button>
-    </div>
-  )
+  if (error) {
+    if (isLoading) {
+      return '...'
+    } else {
+      window.location.pathname = `user/${userId}/error`
+      return null
+    }
+  } else if (!error) {
+    if (isLoading) {
+      return '...'
+    } else {
+      return <Barchart datas={data} />
+    }
+  }
 }
 
 export default UserActivity

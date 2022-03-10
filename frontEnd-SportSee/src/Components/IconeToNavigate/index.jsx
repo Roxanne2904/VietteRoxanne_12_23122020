@@ -5,12 +5,6 @@ import PropType from 'prop-types'
  * @return { HtmlElements } IconeToNavigate's component is displayed dynamically.
  */
 
-IconToNavigate.propTypes = {
-  url: PropType.string,
-  id: PropType.number,
-  name: PropType.string,
-}
-
 function IconToNavigate({ url, id, name }) {
   return (
     <div className="iconesContent">
@@ -23,4 +17,11 @@ function IconToNavigate({ url, id, name }) {
     </div>
   )
 }
+
+IconToNavigate.propTypes = {
+  url: PropType.string,
+  id: PropType.number.isRequired,
+  name: PropType.string,
+}
+
 export default IconToNavigate

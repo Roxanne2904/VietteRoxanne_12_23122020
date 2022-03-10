@@ -1,5 +1,6 @@
 import logo from '../../asset/png/logo.png'
 import { Link } from 'react-router-dom'
+
 /**
  * Display the header with the navigation.
  * @return { HtmlElements } Header's component is displayed dynamically.

@@ -1,11 +1,16 @@
 import { useParams } from 'react-router-dom'
+import PropType from 'prop-types'
 // import { useFetch } from '../../service/useFetch/index'
 // import isMockedDatas from '../../service/handleURL'
 //Components
 import VerticalLayout from '../../Components/VerticalLayout'
 import InfosCard from '../../Components/InfosCard'
+import Error from '../Error'
+import AverageSessions from '../../Modelization/AverageSessions'
+import Performance from '../../Modelization/Performance'
 // import Barchart from '../../Components/BarChart/index'
 import UserActivity from '../../Modelization/UserActivity/index'
+import Radialchart from '../../Components/Radialchart'
 //icones
 
 //PNG FILES
@@ -18,7 +23,7 @@ import energySvg from '../../asset/svg/energySvg.svg'
 import chickenSvg from '../../asset/svg/chickenSvg.svg'
 import appleSvg from '../../asset/svg/appleSvg.svg'
 import cheeseburgerSvg from '../../asset/svg/cheeseburgerSvg.svg'
-import PropType from 'prop-types'
+
 //context
 // import { UsersDatasContext } from '../../Modelization/UsersDatas/UserDatasContext'
 // import { useContext } from 'react'
@@ -27,13 +32,6 @@ import PropType from 'prop-types'
  * Display user profile's page.
  * @returns { HtmlElements } User's component is displayed dynamically.
  */
-
-UserActivity.defaultProps = {
-  datas: [],
-}
-UserActivity.propTypes = {
-  datas: PropType.array.isRequired,
-}
 
 function User({ datas }) {
   let { id } = useParams()
@@ -68,7 +66,13 @@ function User({ datas }) {
         <section id="performance" className="userContent__performance">
           <div className="userContent__performance__BarChart">
             <UserActivity userId={id} />
+            <div className="charts">
+              <AverageSessions userId={id} />
+              <Performance userId={id} />
+              <Radialchart datas={datas} />
+            </div>
           </div>
+
           <div>
             <InfosCard
               name="Calories"
@@ -103,8 +107,15 @@ function User({ datas }) {
       </div>
     </main>
   ) : (
-    <div>Components Erreur</div>
+    <Error />
   )
+}
+
+UserActivity.defaultProps = {
+  datas: [],
+}
+UserActivity.propTypes = {
+  datas: PropType.array.isRequired,
 }
 
 export default User

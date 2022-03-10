@@ -1,8 +1,3 @@
-/**
- * Display a Bar Chart with activity's datas from the API.
- * @return { HtmlElements } BarChart's component is displayed dynamically.
- */
-
 import {
   BarChart,
   Bar,
@@ -15,24 +10,21 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import { formatUnit } from '../../CustomFormat/index'
-// const data = [
-//   { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-//   { name: 'Page B', uv: 200, pv: 2400, amt: 2400 },
-//   { name: 'Page C', uv: 500, pv: 2400, amt: 2400 },
-//   { name: 'Page D', uv: 200, pv: 2400, amt: 2400 },
-//   { name: 'Page E', uv: 700, pv: 2400, amt: 2400 },
-//   { name: 'Page F', uv: 500, pv: 2400, amt: 2400 },
-// ]
-// console.log(data)
+import PropTypes from 'prop-types'
+
+/**
+ * It custom the tooltip bar chart.
+ * @returns { HtmlElements } FormatTooltip's component.
+ */
 
 const FormatTooltip = ({ active, payload }) => {
   if (active) {
     return (
-      <div className="custom-tooltip">
-        <p className="custom-tooltip__kilogram">
+      <div className="custom-Bartooltip">
+        <p className="custom-Bartooltip__kilogram">
           {formatUnit(payload[1].value, 'kilogram')}
         </p>
-        <p className="custom-tooltip__calories">
+        <p className="custom-Bartooltip__calories">
           {formatUnit(payload[0].value, 'calories')}
         </p>
       </div>
@@ -42,11 +34,30 @@ const FormatTooltip = ({ active, payload }) => {
   return null
 }
 
-function formatXAxis(tick) {
-  return tick + 1
+FormatTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 }
+//--------------------------
+//--------------------------
+/**
+ * Add "+1" to XAxis ticks in order to they start to "1" and not "0".
+ * @param { Number } ticks Ticks of XAxis as an integer.
+ * @returns { Number } current tick + 1
+ */
+
+function formatXAxis(ticks) {
+  return ticks + 1
+}
+//--------------------------
+//--------------------------
+/**
+ * Display a Bar Chart with activity's datas from the API.
+ * @return { HtmlElements } BarChart's component is displayed dynamically.
+ */
 
 function Barchart({ datas }) {
+  // console.log(datas)
   const { sessions } = datas !== undefined && datas
 
   return (
@@ -101,24 +112,8 @@ function Barchart({ datas }) {
             domain={['dataMin-2', 'dataMax+1']}
             tickCount={3}
             dataKey="kilogram"
-            // hide={true}
-            // allowDataOverflow={true}
-            // interval={[1]}
-            // unit="kg"
           />
-          <YAxis
-            yAxisId="left"
-            dataKey="calories"
-            hide={true}
-            // orientation="right"
-            // axisLine={false}
-            // tickLine={false}
-            // tickSize={30}
-            // ticks={[70]}
-            // allowDataOverflow={true}
-            // interval={[1]}
-            // unit="kg"
-          />
+          <YAxis yAxisId="left" dataKey="calories" hide={true} />
 
           <Tooltip
             content={<FormatTooltip />}
@@ -146,4 +141,18 @@ function Barchart({ datas }) {
     </div>
   )
 }
+
+Barchart.propTypes = {
+  datas: PropTypes.shape({
+    sessions: PropTypes.arrayOf(
+      PropTypes.shape({
+        day: PropTypes.string,
+        kilogram: PropTypes.number.isRequired,
+        calories: PropTypes.number.isRequired,
+      })
+    ),
+    userId: PropTypes.number.isRequired,
+  }).isRequired,
+}
+
 export default Barchart
