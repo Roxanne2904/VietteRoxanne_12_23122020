@@ -2,20 +2,24 @@ import { useFetch } from '../../service/useFetch/index'
 import isMockedDatas from '../../service/handleURL/index'
 import Radarchart from '../../Components/Radarchart'
 import { formatKind } from '../../CustomFormat/index'
-// import Error from '../../Pages/Error'
+import PropTypes from 'prop-types'
+
+/**
+ * Fetch and modelized performance's datas.
+ * @returns { Component } Radarchart's component is returned with performance's datas in props.
+ */
 
 function Performance({ userId }) {
-  // console.log(userId)
-  // let customDatas
-  // let customKind
-  let customDatas
-  const userResponse = useFetch(isMockedDatas(false, userId, 'performance'))
-  const { datas, isLoading, error } = userResponse !== undefined && userResponse
+  let object_objCustomDatas
+  const object_objFetchResponse = useFetch(
+    isMockedDatas(false, userId, 'performance')
+  )
+  const { datas, isLoading, error } =
+    object_objFetchResponse !== undefined && object_objFetchResponse
   const { data, kind } = datas.data !== undefined && datas.data
 
-  customDatas = formatKind(data, kind, datas.data)
+  object_objCustomDatas = formatKind(data, kind, datas.data)
 
-  console.log(!error)
   if (error) {
     if (isLoading) {
       return '...'
@@ -27,9 +31,13 @@ function Performance({ userId }) {
     if (isLoading) {
       return '...'
     } else {
-      return <Radarchart datas={customDatas} />
+      return <Radarchart datas={object_objCustomDatas} />
     }
   }
+}
+
+Performance.propTypes = {
+  userId: PropTypes.number.isRequired,
 }
 
 export default Performance

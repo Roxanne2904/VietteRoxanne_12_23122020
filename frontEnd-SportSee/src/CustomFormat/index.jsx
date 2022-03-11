@@ -13,7 +13,7 @@ export function formatUnit(number, unit) {
     case 'kilogram':
       return `${number.toLocaleString('en-US')}kg`
     case `sessionLength`:
-      return `${number.toLocaleString('en-US')}min`
+      return `${number.toLocaleString('en-US')} min`
     default:
       return `${number.toLocaleString('en-US')}g`
   }
@@ -23,42 +23,41 @@ export function formatUnit(number, unit) {
  * From performance's datas, in datas's array,
  * it custom kind's values to string.
  * @param { Array.<Object.<value: Number, kind: Number>> } array
- * @param { Object.<kind: String> } kind
- * @param { Object.<data: Array, kind: Object, userId: Number>} obj
+ * @param { Object.<kind: String> } obj
+ * @param { Object.<data: Array, kind: Object, userId: Number>} datas
  * @returns { Object.<data: Array.<Object.<value: Number, kind: String>, kind: Object, userId: Number>}
  */
 
-export function formatKind(array, kind, obj) {
-  let customKind
+export function formatKind(array, obj, datas) {
+  let array_arrCustomKind
 
-  customKind =
+  array_arrCustomKind =
     array !== undefined &&
     array.map((el) => {
-      console.log(el)
-      let keyKind = { ...el, key: `${kind[el.kind]}` }
+      let object_objKeyKind = { ...el, key: `${obj[el.kind]}` }
 
-      switch (keyKind.key) {
+      switch (object_objKeyKind.key) {
         case `cardio`:
-          return { ...keyKind, kind: 'Cardio' }
+          return { ...object_objKeyKind, kind: 'Cardio' }
         case `energy`:
-          return { ...keyKind, kind: 'Energie' }
+          return { ...object_objKeyKind, kind: 'Energie' }
         case `endurance`:
-          return { ...keyKind, kind: 'Endurance' }
+          return { ...object_objKeyKind, kind: 'Endurance' }
         case `strength`:
-          return { ...keyKind, kind: 'Force' }
+          return { ...object_objKeyKind, kind: 'Force' }
         case `speed`:
-          return { ...keyKind, kind: 'Vitesse' }
+          return { ...object_objKeyKind, kind: 'Vitesse' }
         case `intensity`:
-          return { ...keyKind, kind: 'Intensité' }
+          return { ...object_objKeyKind, kind: 'Intensité' }
         default:
           return null
       }
     })
 
   return (
-    obj !== undefined && {
-      ...obj,
-      data: customKind,
+    datas !== undefined && {
+      ...datas,
+      data: array_arrCustomKind,
     }
   )
 }

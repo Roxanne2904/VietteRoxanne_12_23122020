@@ -8,25 +8,34 @@ import PropTypes from 'prop-types'
 
 function Radialchart({ datas }) {
   // console.log(datas)
-  let { score, percentageScore } = datas[0] !== undefined && datas[0]
+  const { score, percentageScore } = datas[0] !== undefined && datas[0]
 
-  let scoreData = [
+  let array_arrScoreData = [
     { score: 1, fill: ' #fbfbfb' },
     { score: score, fill: '#FF0000' },
   ]
+
   return (
-    <div className="radial">
-      <h2>Score</h2>
-      <span>{percentageScore}</span>
-      <span></span>
+    <div className="radialChart">
+      <h2 className="radialChart__title">Score</h2>
+      <div className="radialChart__scoreContent">
+        <span className="radialChart__scoreContent__percentage">
+          {percentageScore}
+        </span>
+        <span className="radialChart__scoreContent__txt">
+          {' '}
+          de votre objectif
+        </span>
+      </div>
+
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           width={500}
           height={500}
-          innerRadius="40%"
+          innerRadius="50%"
           outerRadius="100%"
           barSize={10}
-          data={scoreData}
+          data={array_arrScoreData}
           startAngle={90}
           endAngle={450}
         >

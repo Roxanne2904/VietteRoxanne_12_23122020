@@ -42,12 +42,12 @@ FormatTooltip.propTypes = {
 //--------------------------
 /**
  * Add "+1" to XAxis ticks in order to they start to "1" and not "0".
- * @param { Number } ticks Ticks of XAxis as an integer.
+ * @param { Number } number_nbTicks Ticks of XAxis as an integer.
  * @returns { Number } current tick + 1
  */
 
-function formatXAxis(ticks) {
-  return ticks + 1
+function formatXAxis(number_nbTicks) {
+  return number_nbTicks + 1
 }
 //--------------------------
 //--------------------------

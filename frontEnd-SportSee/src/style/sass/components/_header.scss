@@ -27,6 +27,15 @@
         cursor: not-allowed;
         &--link {
           cursor: pointer;
+          &:hover {
+            color: $colorPrimary;
+          }
+        }
+        &--red {
+          color: $colorPrimary;
+        }
+        &--white {
+          color: white;
         }
       }
     }

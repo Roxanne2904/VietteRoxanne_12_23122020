@@ -5,8 +5,13 @@ import { formatUnit } from '../../CustomFormat'
 import User from '../../Pages/User/index'
 import Error from '../../Pages/Error'
 
+/**
+ * Fetch and modelized user's datas.
+ * @returns { Component } User's component is returned with user user's datas in props.
+ */
+
 function UserDatas() {
-  let userDatas = []
+  let array_arrUserDatas = []
   const { id } = useParams()
 
   const fetchResponse = useFetch(isMockedDatas(false, id, 'userDatas'))
@@ -14,9 +19,9 @@ function UserDatas() {
 
   const isDatasGet = datas.data !== undefined && datas.error !== true
 
-  userDatas.push(isDatasGet !== false && datas.data)
+  array_arrUserDatas.push(isDatasGet !== false && datas.data)
 
-  userDatas = userDatas.map((user) => {
+  array_arrUserDatas = array_arrUserDatas.map((user) => {
     let newDatas
     let newKeyData = user !== false && {
       ...user.keyData,
@@ -41,7 +46,6 @@ function UserDatas() {
 
     return newDatas
   })
-  // console.log(userDatas)
 
   if (error) {
     if (isLoading) {
@@ -53,7 +57,7 @@ function UserDatas() {
     if (isLoading) {
       return '...'
     } else {
-      return <User datas={userDatas} />
+      return <User datas={array_arrUserDatas} />
     }
   }
 }

@@ -5,7 +5,7 @@ import PropType from 'prop-types'
  * @return { HtmlElements } InfosCards's component is displayed dynamically.
  */
 
-function InfosCard({ numberUnit, name, png, svg, color }) {
+function InfosCard({ unit, name, png, svg, color }) {
   return (
     <div className="cardContent">
       <div className={`cardContent__icone cardContent__icone--${color}`}>
@@ -19,7 +19,7 @@ function InfosCard({ numberUnit, name, png, svg, color }) {
         />
       </div>
       <div className="cardContent__infos">
-        <span className="cardContent__infos__number">{numberUnit}</span>
+        <span className="cardContent__infos__number">{unit}</span>
         <span className="cardContent__infos__name">{name}</span>
       </div>
     </div>
@@ -27,7 +27,7 @@ function InfosCard({ numberUnit, name, png, svg, color }) {
 }
 
 InfosCard.propTypes = {
-  numberUnit: PropType.string.isRequired,
+  unit: PropType.string.isRequired,
   name: PropType.string.isRequired,
   png: PropType.string.isRequired,
   svg: PropType.string.isRequired,

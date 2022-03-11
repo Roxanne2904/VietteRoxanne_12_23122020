@@ -2,7 +2,7 @@ import '../style/css/style.css'
 //Components
 import Header from '../Components/Header/index'
 import Home from '../Pages/Home/index'
-import UserDatas from '../Modelization/UsersDatas/UserDatas'
+import UserDatas from '../Modelization/UsersDatas/index'
 import Error from '../Pages/Error'
 //Router
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'

@@ -1,11 +1,18 @@
-import LineChart from '../../Components/LineChart'
+import Linechart from '../../Components/Linechart'
 import { useFetch } from '../../service/useFetch/index'
 import isMockedDatas from '../../service/handleURL/index'
+import PropTypes from 'prop-types'
+
+/**
+ * Fetch and modelized average sessions's datas.
+ * @returns { Component } Linechart's component is returned with average sessions's datas in props.
+ */
 
 function AverageSessions({ userId }) {
-  //   console.log(userId)
-  const userResponse = useFetch(isMockedDatas(false, userId, 'averageSessions'))
-  const { datas, isLoading, error } = userResponse
+  const object_objFetchResponse = useFetch(
+    isMockedDatas(false, userId, 'averageSessions')
+  )
+  const { datas, isLoading, error } = object_objFetchResponse
   const { data } = datas !== undefined && datas
 
   if (error) {
@@ -19,9 +26,13 @@ function AverageSessions({ userId }) {
     if (isLoading) {
       return '...'
     } else {
-      return <LineChart datas={data} />
+      return <Linechart datas={data} />
     }
   }
+}
+
+AverageSessions.propTypes = {
+  userId: PropTypes.number.isRequired,
 }
 
 export default AverageSessions

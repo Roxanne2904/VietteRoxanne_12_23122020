@@ -1,5 +1,7 @@
+import React from 'react'
 import logo from '../../asset/png/logo.png'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 /**
  * Display the header with the navigation.
@@ -7,6 +9,21 @@ import { Link } from 'react-router-dom'
  */
 
 function Header() {
+  let profileRef = React.createRef()
+  const [color, setColor] = useState('white')
+  //-----------------
+  /**
+   * @name switchToWhite
+   * It switch to white the profile's tag on the top navigation.
+   * It update the class name to change the color.
+   */
+
+  function switchToWhite() {
+    setColor('white')
+    profileRef.current.className = ` header__nav__ul__li header__nav__ul__li--${color}`
+  }
+  //-----------------
+  //-----------------
   return (
     <header className="header">
       <div className="header__imgContent">
@@ -20,13 +37,20 @@ function Header() {
         <ul className="header__nav__ul">
           <li>
             <Link
+              onClick={() => switchToWhite()}
               className="header__nav__ul__li header__nav__ul__li--link"
               to="/"
             >
               Accueil
             </Link>
           </li>
-          <li className="header__nav__ul__li">Profil</li>
+          <li
+            ref={profileRef}
+            id="profile"
+            className="header__nav__ul__li header__nav__ul__li--none"
+          >
+            Profil
+          </li>
           <li className="header__nav__ul__li">Réglage</li>
           <li className=" header__nav__ul__li">Communauté</li>
         </ul>

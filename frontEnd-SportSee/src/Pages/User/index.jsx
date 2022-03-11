@@ -24,35 +24,33 @@ import chickenSvg from '../../asset/svg/chickenSvg.svg'
 import appleSvg from '../../asset/svg/appleSvg.svg'
 import cheeseburgerSvg from '../../asset/svg/cheeseburgerSvg.svg'
 
-//context
-// import { UsersDatasContext } from '../../Modelization/UsersDatas/UserDatasContext'
-// import { useContext } from 'react'
+/**
+ *@name activateProfileTag
+ * It switch to red the profile's tag on the top navigation.
+ * It update the class name to change the color.
+ */
+const activateProfileTag = () => {
+  if (window.location.pathname.split('/')[1] === 'user') {
+    let string_strProfileTag = document.querySelector('#profile')
 
+    string_strProfileTag.className =
+      ' header__nav__ul__li header__nav__ul__li--red'
+  }
+}
+//------------------------------------
+//------------------------------------
 /**
  * Display user profile's page.
  * @returns { HtmlElements } User's component is displayed dynamically.
  */
 
 function User({ datas }) {
+  activateProfileTag()
+  //----------------------
   let { id } = useParams()
   id = parseInt(id)
-
-  // const { usersDatas } = useContext(UsersDatasContext)
-  // const currentUser = usersDatas.filter(
-  //   (user) => user !== undefined && user.id === parseInt(id)
-  // )
-  //-----------
-  //-----------
-  //-----------
-  // const userActivity = useFetch(isMockedDatas(false, id, 'userActivity'))
-  //------------
-  //------------
-  //------------
-  // const booleen_boolIsDatasGet = currentUser[0] !== undefined
   const booleen_boolIsDatasGet = datas[0] !== false
 
-  // console.log(booleen_boolIsDatasGet)
-  // return null
   return booleen_boolIsDatasGet === true ? (
     <main>
       <VerticalLayout />
@@ -63,41 +61,43 @@ function User({ datas }) {
           <span className="userContent__mainTitle userContent__mainTitle--color">{`${datas[0].userInfos.firstName}`}</span>
         </h1>
         <div className="userContent__subTitle">{`Félicitation ! Vous avez explosé vos objectifs hier 👏`}</div>
-        <section id="performance" className="userContent__performance">
-          <div className="userContent__performance__BarChart">
-            <UserActivity userId={id} />
-            <div className="charts">
+        <section id="sportResult" className="userContent__sportResult">
+          <div className="userContent__sportResult__charts">
+            <div className="userContent__sportResult__charts__BarChart">
+              <UserActivity userId={id} />
+            </div>
+            <div className="userContent__sportResult__charts__secondariesCharts">
               <AverageSessions userId={id} />
               <Performance userId={id} />
               <Radialchart datas={datas} />
             </div>
           </div>
 
-          <div>
+          <div className="userContent__sportResult__infos">
             <InfosCard
               name="Calories"
-              numberUnit={datas[0].keyData.calorieCount}
+              unit={datas[0].keyData.calorieCount}
               png={`${energyPng}`}
               svg={`${energySvg}`}
               color="red"
             />
             <InfosCard
               name="Proteines"
-              numberUnit={datas[0].keyData.proteinCount}
+              unit={datas[0].keyData.proteinCount}
               png={`${chickenPng}`}
               svg={`${chickenSvg}`}
               color="blue"
             />
             <InfosCard
               name="Glucides"
-              numberUnit={datas[0].keyData.carbohydrateCount}
+              unit={datas[0].keyData.carbohydrateCount}
               png={`${applePng}`}
               svg={`${appleSvg}`}
               color="yellow"
             />
             <InfosCard
               name="Lipides"
-              numberUnit={datas[0].keyData.lipidCount}
+              unit={datas[0].keyData.lipidCount}
               png={`${cheeseburgerPng}`}
               svg={`${cheeseburgerSvg}`}
               color="pink"
@@ -111,11 +111,20 @@ function User({ datas }) {
   )
 }
 
-UserActivity.defaultProps = {
-  datas: [],
-}
-UserActivity.propTypes = {
-  datas: PropType.array.isRequired,
+User.propTypes = {
+  datas: PropType.arrayOf(
+    PropType.shape({
+      id: PropType.number,
+      keyData: PropType.objectOf(PropType.string),
+      percentageScore: PropType.string,
+      score: PropType.number,
+      userInfos: PropType.shape({
+        age: PropType.number,
+        firstName: PropType.string,
+        lastName: PropType.string,
+      }),
+    })
+  ).isRequired,
 }
 
 export default User

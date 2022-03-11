@@ -1,5 +1,10 @@
 import { useParams } from 'react-router-dom'
 
+/**
+ * Display error's page.
+ * @returns { HTMLElements } Error's component is displayed dynamically.
+ */
+
 function Error() {
   const { id } = useParams()
   // console.log(id)

@@ -8,69 +8,9 @@
 7 Theme
 
 */
-.test {
-  background-color: #ff0101;
-  width: 30%;
-  height: 263px;
-  border-radius: 5px;
-  position: relative;
-}
-
-.test0 {
-  position: absolute;
-  top: 0;
-}
-
 .test01 {
   color: black;
   background-color: white;
-}
-
-.test00 {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.test02 {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  color: white;
-  opacity: 0.6;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 12px;
-  font-size: 12px;
-}
-
-.lineChart__title {
-  max-width: 50%;
-  font-size: 15px;
-  padding: 29px 0 0 34px;
-  color: white;
-  opacity: 0.6;
-  font-weight: 500;
-}
-
-.radarChart {
-  background-color: #282d30;
-  width: 30%;
-  height: 263px;
-}
-
-.charts {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.radial {
-  position: relative;
-  background-color: #fbfbfb;
-  width: 30%;
-  height: 263px;
 }
 
 @font-face {
@@ -148,6 +88,15 @@ code {
 .header__nav__ul__li--link {
   cursor: pointer;
 }
+.header__nav__ul__li--link:hover {
+  color: #ff0101;
+}
+.header__nav__ul__li--red {
+  color: #ff0101;
+}
+.header__nav__ul__li--white {
+  color: white;
+}
 
 .iconesContent {
   display: flex;
@@ -194,7 +143,6 @@ code {
   display: flex;
   align-items: center;
   background-color: #fbfbfb;
-  margin-bottom: 39px;
 }
 .cardContent__icone {
   display: flex;
@@ -241,7 +189,6 @@ code {
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  width: 90%;
 }
 .barChart__chartLabel {
   padding: 0 0 65px 0;
@@ -300,9 +247,103 @@ code {
   background-color: #e60000;
   margin: 20px;
   color: white;
+  width: 43px;
+  height: 67px;
+  font-size: 0.54rem;
+}
+
+.lineChart {
+  background-color: #ff0101;
+  width: 30%;
+  height: 263px;
+  border-radius: 5px;
+  position: relative;
+}
+.lineChart__title {
+  max-width: 50%;
+  font-size: 15px;
+  padding: 29px 0 0 34px;
+  color: white;
+  opacity: 0.6;
+  font-weight: 500;
+}
+.lineChart__responsiveContainer {
+  position: absolute;
+  top: 0;
+}
+.lineChart__weekDaysTicks {
+  width: 100%;
+  display: flex;
+}
+.lineChart__weekDaysTicks__ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  color: white;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+.custom-Linetooltip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 39px;
-  height: 63px;
-  font-size: 0.5rem;
+  height: 25px;
+  background: white;
+  border: 1.5px rgba(0, 0, 0, 0.281) solid;
+}
+.custom-Linetooltip__minutes {
+  color: black;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.radarChart {
+  background-color: #282d30;
+  width: 30%;
+  height: 263px;
+  border-radius: 5px;
+}
+
+.radialChart {
+  position: relative;
+  background-color: #fbfbfb;
+  width: 30%;
+  height: 263px;
+}
+.radialChart__title {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  font-size: 16px;
+}
+.radialChart__scoreContent {
+  position: absolute;
+  top: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.radialChart__scoreContent__percentage {
+  display: block;
+  font-size: 2.4vw;
+  font-weight: 800;
+  z-index: 1;
+}
+.radialChart__scoreContent__txt {
+  display: block;
+  width: 30%;
+  font-size: 1.2vw;
+  font-weight: 600;
+  color: #74798cbb;
+  z-index: 1;
 }
 
 .userContent {
@@ -320,11 +361,26 @@ code {
   font-size: 18px;
   margin: 20px 0 100px 0;
 }
-.userContent__performance {
+.userContent__sportResult {
   display: flex;
+  justify-content: space-between;
 }
-.userContent__performance__BarChart {
+.userContent__sportResult__charts {
+  width: 74%;
+}
+.userContent__sportResult__charts__BarChart {
   flex: 1;
+}
+.userContent__sportResult__charts__secondariesCharts {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+}
+.userContent__sportResult__infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */

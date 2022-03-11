@@ -13,10 +13,25 @@
     font-size: $smallSize;
     margin: 20px 0 100px 0;
   }
-  &__performance {
+  &__sportResult {
     display: flex;
-    &__BarChart {
-      flex: 1;
+    justify-content: space-between;
+    &__charts {
+      width: 74%;
+      &__BarChart {
+        flex: 1;
+      }
+      &__secondariesCharts {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 30px;
+      }
+    }
+    &__infos {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }
