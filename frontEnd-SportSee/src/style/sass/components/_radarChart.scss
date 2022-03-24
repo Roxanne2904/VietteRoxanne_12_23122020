@@ -2,5 +2,8 @@
   background-color: #282d30;
   width: 30%;
   height: 263px;
-  border-radius: 5px;
+  border-radius: $mainRadius;
+  @include responsive-maxWidth('m_l') {
+    width: 45%;
+  }
 }

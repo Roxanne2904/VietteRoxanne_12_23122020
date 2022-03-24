@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  width: 64px;
-  height: 64px;
-  border-radius: 6px;
+  background-color: $white;
+  width: 62px;
+  height: 62px;
+  border-radius: $mainRadius;
   margin: 10px 0;
   &__icones {
     cursor: not-allowed;

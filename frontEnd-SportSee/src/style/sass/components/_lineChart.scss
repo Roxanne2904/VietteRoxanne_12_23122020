@@ -2,26 +2,27 @@
   background-color: $colorPrimary;
   width: 30%;
   height: 263px;
-  border-radius: 5px;
+  border-radius: $mainRadius;
   position: relative;
-  // padding: 10px;
+  @include responsive-maxWidth('m_l') {
+    width: 45%;
+    margin-right: 40px;
+  }
   &__title {
     max-width: 50%;
-    font-size: 15px;
+    font-size: $XsmallSize;
     padding: 29px 0 0 34px;
     color: white;
     opacity: 0.6;
-    font-weight: 500;
+    font-weight: $mainWeight;
   }
   &__responsiveContainer {
     position: absolute;
     top: 0;
-    // bottom: 0;
   }
   &__weekDaysTicks {
     width: 100%;
     display: flex;
-    // justify-content: center;
     &__ul {
       width: 100%;
       display: flex;
@@ -42,11 +43,11 @@
   justify-content: center;
   width: 39px;
   height: 25px;
-  background: white;
-  border: 1.5px rgba(0, 0, 0, 0.281) solid;
+  background: $white;
+  border: 1.5px $blackWithLessOpacity solid;
   &__minutes {
-    color: black;
+    color: $black;
     font-size: 10.5px;
-    font-weight: 600;
+    font-weight: $secondaryWeight;
   }
 }

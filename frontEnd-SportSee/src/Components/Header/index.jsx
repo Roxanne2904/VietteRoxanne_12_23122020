@@ -14,7 +14,7 @@ function Header() {
   //-----------------
   /**
    * @name switchToWhite
-   * It switch to white the profile's tag on the top navigation.
+   * It switch profile's tag  to white, on the top navigation.
    * It update the class name to change the color.
    */
 

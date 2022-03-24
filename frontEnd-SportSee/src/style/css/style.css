@@ -34,6 +34,7 @@ main {
   margin: 0;
   padding: 0;
   font-family: "robotoregular";
+  box-sizing: border-box;
 }
 
 body {
@@ -82,8 +83,13 @@ code {
   display: block;
   text-decoration: none;
   color: white;
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: not-allowed;
+}
+@media screen and (max-width: 1150px) {
+  .header__nav__ul__li {
+    font-size: 1.375rem;
+  }
 }
 .header__nav__ul__li--link {
   cursor: pointer;
@@ -102,10 +108,10 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  width: 64px;
-  height: 64px;
-  border-radius: 6px;
+  background-color: white;
+  width: 62px;
+  height: 62px;
+  border-radius: 5px;
   margin: 10px 0;
 }
 .iconesContent__icones {
@@ -118,23 +124,37 @@ code {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  max-width: 117px;
   background-color: #020203;
-  width: 10%;
+  min-width: 117px;
+  max-width: 117px;
+}
+@media screen and (max-width: 1150px) {
+  .verticalLayout {
+    justify-content: space-between;
+  }
 }
 .verticalLayout__ul {
   display: flex;
   flex-direction: column;
+}
+@media screen and (max-width: 1150px) {
+  .verticalLayout__ul {
+    margin: 75px 0 0;
+  }
 }
 .verticalLayout__copyRights {
   display: block;
   color: white;
   transform: rotate(-90deg);
   font-size: 12px;
-  width: 130%;
+  width: 116%;
   margin: 40px;
-  position: relative;
-  bottom: 7px;
+}
+@media screen and (max-width: 1150px) {
+  .verticalLayout__copyRights {
+    margin: 0 0 50px;
+    width: 80px;
+  }
 }
 
 .cardContent {
@@ -143,6 +163,13 @@ code {
   display: flex;
   align-items: center;
   background-color: #fbfbfb;
+  border-radius: 5px;
+}
+@media screen and (max-width: 1400px) {
+  .cardContent {
+    min-width: 220px;
+    margin-top: 1.875rem;
+  }
 }
 .cardContent__icone {
   display: flex;
@@ -150,7 +177,7 @@ code {
   width: 60px;
   height: 60px;
   margin: 0 0 0 32px;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 .cardContent__icone--red {
   background-color: rgba(255, 0, 0, 0.1);
@@ -172,13 +199,18 @@ code {
   flex-direction: column;
   margin: 0 0 0 30px;
 }
+@media screen and (max-width: 1400px) {
+  .cardContent__infos {
+    margin: 0 0 0 10px;
+  }
+}
 .cardContent__infos__number {
   font-size: 20px;
   font-weight: 700;
 }
 .cardContent__infos__name {
   display: block;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #74798c;
   margin-top: 5px;
 }
@@ -188,7 +220,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 1.875rem;
 }
 .barChart__chartLabel {
   padding: 0 0 65px 0;
@@ -197,11 +229,11 @@ code {
   justify-content: space-between;
 }
 .barChart__chartLabel__title {
-  font-size: 15px;
-  margin-left: 15px;
+  font-size: 0.875rem;
+  margin-left: 0.875rem;
 }
 .barChart__chartLabel__legend {
-  margin-right: 15px;
+  margin-right: 0.875rem;
   display: flex;
   justify-content: space-between;
 }
@@ -216,7 +248,7 @@ code {
   font-size: 0.5rem;
 }
 .barChart__chartLabel__legend__weight__unit {
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-left: 15px;
   color: #74798c;
 }
@@ -234,22 +266,24 @@ code {
   color: #e60000;
 }
 .barChart__chartLabel__legend__calories__unit {
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-left: 15px;
   color: #74798c;
 }
 
 .custom-Bartooltip {
+  position: relative;
+  bottom: 52px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
   background-color: #e60000;
   margin: 20px;
   color: white;
   width: 43px;
   height: 67px;
-  font-size: 0.54rem;
+  font-size: 0.5rem;
 }
 
 .lineChart {
@@ -259,9 +293,15 @@ code {
   border-radius: 5px;
   position: relative;
 }
+@media screen and (max-width: 1150px) {
+  .lineChart {
+    width: 45%;
+    margin-right: 40px;
+  }
+}
 .lineChart__title {
   max-width: 50%;
-  font-size: 15px;
+  font-size: 0.875rem;
   padding: 29px 0 0 34px;
   color: white;
   opacity: 0.6;
@@ -309,22 +349,33 @@ code {
   height: 263px;
   border-radius: 5px;
 }
+@media screen and (max-width: 1150px) {
+  .radarChart {
+    width: 45%;
+  }
+}
 
 .radialChart {
   position: relative;
   background-color: #fbfbfb;
-  width: 30%;
+  width: 100%;
   height: 263px;
+  border-radius: 5px;
+}
+@media screen and (max-width: 1150px) {
+  .radialChart {
+    width: 45%;
+  }
 }
 .radialChart__title {
   position: absolute;
   top: 8%;
   left: 10%;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .radialChart__scoreContent {
   position: absolute;
-  top: 32%;
+  top: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -333,17 +384,181 @@ code {
 }
 .radialChart__scoreContent__percentage {
   display: block;
-  font-size: 2.4vw;
+  font-size: 35px;
   font-weight: 800;
   z-index: 1;
 }
 .radialChart__scoreContent__txt {
   display: block;
-  width: 30%;
-  font-size: 1.2vw;
+  width: 35%;
+  text-align: center;
+  font-size: 1rem;
   font-weight: 600;
   color: #74798cbb;
   z-index: 1;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.content__loadingSpinner {
+  position: fixed;
+  top: 50%;
+  display: flex;
+  min-width: 10%;
+  max-width: 20%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 1150px) {
+  .content__loadingSpinner {
+    top: 52%;
+  }
+}
+.content__loadingSpinner__dot1 {
+  border-radius: 50%;
+  margin: 10px;
+  width: 1.125rem;
+  height: 1.125rem;
+  transform: scale(0);
+  background-color: #ff0101;
+  animation-name: animation;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-delay: 100ms;
+  animation-timing-function: ease-in-out;
+  filter: blur(0.4px);
+}
+@media screen and (max-width: 1150px) {
+  .content__loadingSpinner__dot1 {
+    width: 13px;
+    height: 13px;
+  }
+}
+.content__loadingSpinner__dot2 {
+  border-radius: 50%;
+  margin: 10px;
+  width: 1.125rem;
+  height: 1.125rem;
+  transform: scale(0);
+  background-color: #ff0101;
+  animation-name: animation;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-delay: 400ms;
+  animation-timing-function: ease-in-out;
+  filter: blur(0.4px);
+}
+@media screen and (max-width: 1150px) {
+  .content__loadingSpinner__dot2 {
+    width: 13px;
+    height: 13px;
+  }
+}
+.content__loadingSpinner__dot3 {
+  border-radius: 50%;
+  margin: 10px;
+  width: 1.125rem;
+  height: 1.125rem;
+  transform: scale(0);
+  background-color: #ff0101;
+  animation-name: animation;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-delay: 700ms;
+  animation-timing-function: ease-in-out;
+  filter: blur(0.4px);
+}
+@media screen and (max-width: 1150px) {
+  .content__loadingSpinner__dot3 {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+@keyframes animation {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2.1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+.errorContent {
+  flex: 1;
+  margin: 68px 0 0 107px;
+}
+.errorContent__mainTitle {
+  font-size: 3rem;
+}
+.errorContent__mainTitle__oups {
+  color: #ff0101;
+}
+.errorContent__txt {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+.errorContent__refreshButton {
+  margin-top: 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 10px;
+  background-color: #020203;
+}
+.errorContent__refreshButton:hover {
+  color: #ff0101;
+}
+
+.homeContent {
+  flex: 1;
+  margin: 68px 0 0 107px;
+}
+.homeContent__mainTitle {
+  font-size: 3rem;
+}
+.homeContent__mainTitle__appName {
+  color: #ff0101;
+}
+.homeContent__secondaryTitle {
+  margin-top: 20px;
+  font-size: 1.875rem;
+  font-weight: 500;
+}
+.homeContent__profilesList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.homeContent__profilesList__user12 {
+  text-decoration: none;
+  margin: 10px 0;
+  cursor: pointer;
+}
+.homeContent__profilesList__user18 {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#wrapper {
+  width: 1440px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1400px) {
+  #wrapper {
+    width: 1024px;
+    margin: 0 auto;
+  }
 }
 
 .userContent {
@@ -351,36 +566,75 @@ code {
   flex: 1;
 }
 .userContent__mainTitle {
-  font-size: 48px;
+  font-size: 3rem;
 }
 .userContent__mainTitle--color {
   color: #ff0101;
 }
 .userContent__subTitle {
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 1.125rem;
   margin: 20px 0 100px 0;
+}
+@media screen and (max-width: 1400px) {
+  .userContent__subTitle {
+    margin: 20px 0 50px 0;
+  }
 }
 .userContent__sportResult {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 1400px) {
+  .userContent__sportResult {
+    flex-direction: column;
+  }
+}
 .userContent__sportResult__charts {
   width: 74%;
+}
+@media screen and (max-width: 1400px) {
+  .userContent__sportResult__charts {
+    width: 100%;
+  }
 }
 .userContent__sportResult__charts__BarChart {
   flex: 1;
 }
 .userContent__sportResult__charts__secondariesCharts {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 1.875rem;
+}
+@media screen and (max-width: 1150px) {
+  .userContent__sportResult__charts__secondariesCharts {
+    flex-direction: row;
+  }
+}
+.userContent__sportResult__charts__secondariesCharts__radialChart {
+  width: 30%;
+}
+@media screen and (max-width: 1150px) {
+  .userContent__sportResult__charts__secondariesCharts__radialChart {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #fbfbfb;
+    margin-top: 40px;
+  }
 }
 .userContent__sportResult__infos {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media screen and (max-width: 1400px) {
+  .userContent__sportResult__infos {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

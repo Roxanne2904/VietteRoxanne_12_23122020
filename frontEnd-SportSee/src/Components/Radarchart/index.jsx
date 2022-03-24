@@ -14,13 +14,10 @@ import PropTypes from 'prop-types'
 
 function Radarchart({ datas }) {
   const { data } = datas !== undefined && datas
-  // console.log(datas)
-  // console.log(data)
-  // console.log(kind)
 
   return (
-    <div className="radarChart">
-      <ResponsiveContainer width="100%" height="100%">
+    <article className="radarChart">
+      <ResponsiveContainer min-width="30%" max-width="33%" height="100%">
         <RadarChart
           outerRadius={80}
           width={730}
@@ -45,7 +42,7 @@ function Radarchart({ datas }) {
           <Radar name="Mike" dataKey="value" fill="#FF0101" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>
-    </div>
+    </article>
   )
 }
 

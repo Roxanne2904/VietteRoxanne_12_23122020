@@ -20,10 +20,10 @@ export function formatUnit(number, unit) {
 }
 
 /**
- * From performance's datas, in datas's array,
- * it custom kind's values to string.
- * @param { Array.<Object.<value: Number, kind: Number>> } array
- * @param { Object.<kind: String> } obj
+ * From performance's datas, in data's array,
+ * it custom kind key's values to string (french translation).
+ * @param { Array.<Object.<value: Number, kind: Number>> } array Array From data's key in datas.
+ * @param { Object.<kind: String> } obj Obj from kind's key in datas.
  * @param { Object.<data: Array, kind: Object, userId: Number>} datas
  * @returns { Object.<data: Array.<Object.<value: Number, kind: String>, kind: Object, userId: Number>}
  */

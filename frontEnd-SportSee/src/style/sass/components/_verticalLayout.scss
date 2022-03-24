@@ -3,28 +3,29 @@
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  max-width: 117px;
   background-color: $bgdColor;
-  width: 10%;
-  // position: absolute;
-  // top: 0;
-  // bottom: 0;
-  // z-index: -1;
+  min-width: 117px;
+  max-width: 117px;
+  @include responsive-maxWidth('m_l') {
+    justify-content: space-between;
+  }
   &__ul {
     display: flex;
     flex-direction: column;
-    // justify-content: space-around;
-    // position: relative;
-    // bottom: 20px;
+    @include responsive-maxWidth('m_l') {
+      margin: 75px 0 0;
+    }
   }
   &__copyRights {
     display: block;
     color: white;
     transform: rotate(-90deg);
     font-size: 12px;
-    width: 130%;
+    width: 116%;
     margin: 40px;
-    position: relative;
-    bottom: 7px;
+    @include responsive-maxWidth('m_l') {
+      margin: 0 0 50px;
+      width: 80px;
+    }
   }
 }

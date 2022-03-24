@@ -8,18 +8,25 @@
 7 Theme
 
 */
-@import "./utils/variables.scss";
-@import "./utils/barChart/mixins.scss";
+@import './utils/variables.scss';
+@import './utils/map.scss';
 //
-@import "./base/base.scss";
+@import './utils/barChart/mixins.scss';
+@import './utils/loadingSpinner/mixinLoadingSpinner.scss';
+@import './utils/mixinResponsive.scss';
 //
-@import "./components/header.scss";
-@import "./components/iconeToNavigate.scss";
-@import "./components/verticalLayout.scss";
-@import "./components/infosCard.scss";
-@import "./components/barChart.scss";
-@import "./components/lineChart.scss";
-@import "./components/radarChart.scss";
-@import "./components/radialChart.scss";
+@import './base/base.scss';
 //
-@import "./pages/user.scss";
+@import './components/header.scss';
+@import './components/iconeToNavigate.scss';
+@import './components/verticalLayout.scss';
+@import './components/infosCard.scss';
+@import './components/barChart.scss';
+@import './components/lineChart.scss';
+@import './components/radarChart.scss';
+@import './components/radialChart.scss';
+@import './components/loadingSpinner.scss';
+//
+@import './pages/error.scss';
+@import './pages/home.scss';
+@import './pages/user.scss';
