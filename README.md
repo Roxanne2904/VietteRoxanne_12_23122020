@@ -44,4 +44,4 @@ Here is the link to see the KANBAN ---> [Kanban](https://www.notion.so/Tableau-d
 ## Netlify deploy-status
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a650edb8-ea85-40a8-acff-0a466aad3e21/deploy-status)](https://app.netlify.com/sites/oc-rv-sportsee-project/deploys)
 
-[Watch the app here!-mocked datas-)](https://oc-rv-sportsee-project.netlify.app/)
+[Watch the app here! -with mocked datas-](https://oc-rv-sportsee-project.netlify.app/)

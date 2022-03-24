@@ -30,10 +30,11 @@ function Error() {
    * @returns An Url path.
    */
   const changeUrlPath = () => {
+    console.log(window.location.pathname)
     if (window.location.pathname === `/error`) {
       return (window.location.pathname = `/`)
     } else {
-      return (window.location.pathname = `/user/${id}/`)
+      return (window.location.pathname = `/user/${id}`)
     }
   }
 
