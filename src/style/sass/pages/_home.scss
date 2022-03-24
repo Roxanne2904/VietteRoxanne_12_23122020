@@ -1,0 +1,30 @@
+.homeContent {
+  flex: 1;
+  margin: 68px 0 0 107px;
+  &__mainTitle {
+    font-size: $bigSize;
+    &__appName {
+      color: $colorPrimary;
+    }
+  }
+  &__secondaryTitle {
+    margin-top: 20px;
+    font-size: $secondaryBigSize;
+    font-weight: $mainWeight;
+  }
+  &__profilesList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__user12 {
+      text-decoration: none;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    &__user18 {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

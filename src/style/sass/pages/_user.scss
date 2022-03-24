@@ -1,0 +1,73 @@
+#wrapper {
+  width: 1440px;
+  margin: 0 auto;
+  @include responsive-maxWidth('l') {
+    width: 1024px;
+    margin: 0 auto;
+  }
+}
+
+.userContent {
+  margin: 68px 107px;
+  flex: 1;
+
+  &__mainTitle {
+    font-size: $bigSize;
+    &--color {
+      color: $colorPrimary;
+    }
+  }
+  &__subTitle {
+    font-weight: $mainWeight;
+    font-size: $smallSize;
+    margin: 20px 0 100px 0;
+    @include responsive-maxWidth('l') {
+      margin: 20px 0 50px 0;
+    }
+  }
+  &__sportResult {
+    display: flex;
+    justify-content: space-between;
+    @include responsive-maxWidth('l') {
+      flex-direction: column;
+    }
+    &__charts {
+      width: 74%;
+      @include responsive-maxWidth('l') {
+        width: 100%;
+      }
+      &__BarChart {
+        flex: 1;
+      }
+      &__secondariesCharts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: $secondaryBigSize;
+        @include responsive-maxWidth('m_l') {
+          flex-direction: row;
+        }
+        &__radialChart {
+          width: 30%;
+          @include responsive-maxWidth('m_l') {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: $bgdCard;
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+    &__infos {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include responsive-maxWidth('l') {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

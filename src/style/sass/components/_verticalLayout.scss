@@ -1,0 +1,31 @@
+.verticalLayout {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: $bgdColor;
+  min-width: 117px;
+  max-width: 117px;
+  @include responsive-maxWidth('m_l') {
+    justify-content: space-between;
+  }
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    @include responsive-maxWidth('m_l') {
+      margin: 75px 0 0;
+    }
+  }
+  &__copyRights {
+    display: block;
+    color: white;
+    transform: rotate(-90deg);
+    font-size: 12px;
+    width: 116%;
+    margin: 40px;
+    @include responsive-maxWidth('m_l') {
+      margin: 0 0 50px;
+      width: 80px;
+    }
+  }
+}

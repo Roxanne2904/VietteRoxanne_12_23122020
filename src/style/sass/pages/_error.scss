@@ -1,0 +1,27 @@
+.errorContent {
+  flex: 1;
+  margin: 68px 0 0 107px;
+  &__mainTitle {
+    font-size: $bigSize;
+    &__oups {
+      color: $colorPrimary;
+    }
+  }
+  &__txt {
+    margin-top: 20px;
+    font-size: $mediumSize;
+  }
+  &__refreshButton {
+    margin-top: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: $XsmallSize;
+    border: none;
+    border-radius: $mainRadius;
+    padding: 15px 10px;
+    background-color: $bgdColor;
+    &:hover {
+      color: $colorPrimary;
+    }
+  }
+}

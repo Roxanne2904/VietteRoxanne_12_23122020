@@ -1,0 +1,32 @@
+/*
+1 Utils
+2 Vendors
+3 Base
+4 Components
+5 Layout
+6 Pages
+7 Theme
+
+*/
+@import './utils/variables.scss';
+@import './utils/map.scss';
+//
+@import './utils/barChart/mixins.scss';
+@import './utils/loadingSpinner/mixinLoadingSpinner.scss';
+@import './utils/mixinResponsive.scss';
+//
+@import './base/base.scss';
+//
+@import './components/header.scss';
+@import './components/iconeToNavigate.scss';
+@import './components/verticalLayout.scss';
+@import './components/infosCard.scss';
+@import './components/barChart.scss';
+@import './components/lineChart.scss';
+@import './components/radarChart.scss';
+@import './components/radialChart.scss';
+@import './components/loadingSpinner.scss';
+//
+@import './pages/error.scss';
+@import './pages/home.scss';
+@import './pages/user.scss';

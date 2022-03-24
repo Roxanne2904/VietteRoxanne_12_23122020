@@ -1,0 +1,53 @@
+.lineChart {
+  background-color: $colorPrimary;
+  width: 30%;
+  height: 263px;
+  border-radius: $mainRadius;
+  position: relative;
+  @include responsive-maxWidth('m_l') {
+    width: 45%;
+    margin-right: 40px;
+  }
+  &__title {
+    max-width: 50%;
+    font-size: $XsmallSize;
+    padding: 29px 0 0 34px;
+    color: white;
+    opacity: 0.6;
+    font-weight: $mainWeight;
+  }
+  &__responsiveContainer {
+    position: absolute;
+    top: 0;
+  }
+  &__weekDaysTicks {
+    width: 100%;
+    display: flex;
+    &__ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      list-style-type: none;
+      color: white;
+      opacity: 0.5;
+      position: absolute;
+      bottom: 0;
+      margin: 20px 0;
+      font-size: 12px;
+    }
+  }
+}
+.custom-Linetooltip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 25px;
+  background: $white;
+  border: 1.5px $blackWithLessOpacity solid;
+  &__minutes {
+    color: $black;
+    font-size: 10.5px;
+    font-weight: $secondaryWeight;
+  }
+}

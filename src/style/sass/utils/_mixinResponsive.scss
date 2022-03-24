@@ -1,0 +1,23 @@
+@mixin responsive-minWidth-MaxWidth($_keyMin, $_keyMax) {
+  @media screen and (min-width: map-get($breakpoints, $_keyMin)) and(max-width: map-get($breakpoints, $_keyMax)) {
+    & {
+      @content;
+    }
+  }
+}
+
+@mixin responsive-minWidth($_keyMin) {
+  @media screen and (min-width: map-get($breakpoints, $_keyMin)) {
+    & {
+      @content;
+    }
+  }
+}
+
+@mixin responsive-maxWidth($_keyMax) {
+  @media screen and (max-width: map-get($breakpoints, $_keyMax)) {
+    & {
+      @content;
+    }
+  }
+}

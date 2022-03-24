@@ -1,0 +1,53 @@
+.barChart {
+  background-color: $bgdCard;
+  @include displayedInColumnAndCenter;
+  padding: $secondaryBigSize;
+  &__chartLabel {
+    padding: 0 0 65px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &__title {
+      font-size: $XsmallSize;
+      margin-left: $XsmallSize;
+    }
+    &__legend {
+      margin-right: $XsmallSize;
+      display: flex;
+      justify-content: space-between;
+      &__weight {
+        @include weigthAndCaloriesPattern;
+        &__icon {
+          @include iconPattern;
+        }
+        &__unit {
+          @include unitPattern;
+        }
+      }
+      &__calories {
+        @include weigthAndCaloriesPattern;
+        &__icon {
+          @include iconPattern;
+          &--red {
+            color: $colorRed01;
+          }
+        }
+        &__unit {
+          @include unitPattern;
+        }
+      }
+    }
+  }
+}
+.custom-Bartooltip {
+  position: relative;
+  bottom: 52px;
+  @include displayedInColumnAndCenter;
+  justify-content: space-evenly;
+  background-color: $colorRed01;
+  margin: 20px;
+  color: white;
+  width: 43px;
+  height: 67px;
+  font-size: $XXsmalSize;
+}
