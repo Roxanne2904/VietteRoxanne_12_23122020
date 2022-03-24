@@ -30,11 +30,12 @@ Code squad:
 ## Launching Project
 ### 1. Launching the micro API: 
 * ```cd backEnd-sportSee/``` 
-* Follow the ```README.md```'s instructions
-* Then ```npm start``` to run the micro Api 
+* Follow the ```README.md```'s instructions.
+* Then ```npm start``` to run the micro Api.
 * Be on port 3000.
 ### 2. Launching the Application: 
-* ```npm start``` to run the application
+* ```cd ../``` to come back in FrontEnd-SportSee folder.
+* ```npm start``` to run the application.
 * Be on port 3001.
 ## Figma's link
 Here is the link to see the model ---> [Figma's link](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=1%3A2) <---
@@ -42,3 +43,5 @@ Here is the link to see the model ---> [Figma's link](https://www.figma.com/file
 Here is the link to see the KANBAN ---> [Kanban](https://www.notion.so/Tableau-de-bord-SportSee-6686aa4b5f44417881a4884c9af5669e) <---
 ## Netlify deploy-status
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a650edb8-ea85-40a8-acff-0a466aad3e21/deploy-status)](https://app.netlify.com/sites/oc-rv-sportsee-project/deploys)
+
+[Watch the app here!-mocked datas-)](https://oc-rv-sportsee-project.netlify.app/)
