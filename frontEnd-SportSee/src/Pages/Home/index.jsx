@@ -10,13 +10,19 @@ function Home() {
   return (
     <main>
       <VerticalLayout />
-      <div>
-        <h1>Choisissez un profil à visualiser</h1>
-        <ul>
-          <Link to={`/user/12`}>
+      <div className="homeContent">
+        <h1 className="homeContent__mainTitle">
+          Bienvenue sur{' '}
+          <span className="homeContent__mainTitle__appName">SportSee</span>
+        </h1>
+        <h2 className="homeContent__secondaryTitle">
+          Choisissez un profil à visualiser
+        </h2>
+        <ul className="homeContent__profilesList">
+          <Link to={`/user/12`} className="homeContent__profilesList__user12">
             Visualiser le profil du <strong>"User n°12"</strong>
           </Link>
-          <Link to={`/user/18`}>
+          <Link to={`/user/18`} className="homeContent__profilesList__user18">
             Visualiser le profil du <strong>"User n°18"</strong>
           </Link>
         </ul>

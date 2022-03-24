@@ -1,0 +1,22 @@
+@mixin animation-delay($map) {
+  @each $block, $value in $map {
+    &#{$block} {
+      border-radius: 50%;
+      margin: 10px;
+      width: $smallSize;
+      height: $smallSize;
+      transform: scale(0);
+      background-color: $colorPrimary;
+      animation-name: animation;
+      animation-duration: 1.2s;
+      animation-iteration-count: infinite;
+      animation-delay: map-get($value, de-lay);
+      animation-timing-function: ease-in-out;
+      filter: blur(0.4px);
+      @include responsive-maxWidth('m_l') {
+        width: 13px;
+        height: 13px;
+      }
+    }
+  }
+}

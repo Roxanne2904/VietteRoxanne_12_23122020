@@ -4,6 +4,7 @@ import isMockedDatas from '../../service/handleURL'
 import { formatUnit } from '../../CustomFormat'
 import User from '../../Pages/User/index'
 import Error from '../../Pages/Error'
+import LoadingSpinner from '../../Components/LoadingSpinner/index'
 
 /**
  * Fetch and modelized user's datas.
@@ -49,13 +50,13 @@ function UserDatas() {
 
   if (error) {
     if (isLoading) {
-      return '...'
+      return <LoadingSpinner />
     } else {
       return <Error />
     }
   } else if (!error) {
     if (isLoading) {
-      return '...'
+      return <LoadingSpinner />
     } else {
       return <User datas={array_arrUserDatas} />
     }

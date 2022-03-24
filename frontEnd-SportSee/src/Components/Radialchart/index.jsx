@@ -16,7 +16,7 @@ function Radialchart({ datas }) {
   ]
 
   return (
-    <div className="radialChart">
+    <article className="radialChart">
       <h2 className="radialChart__title">Score</h2>
       <div className="radialChart__scoreContent">
         <span className="radialChart__scoreContent__percentage">
@@ -28,7 +28,7 @@ function Radialchart({ datas }) {
         </span>
       </div>
 
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer min-width="30%" max-width="33%" height="100%">
         <RadialBarChart
           width={500}
           height={500}
@@ -48,7 +48,7 @@ function Radialchart({ datas }) {
           />
         </RadialBarChart>
       </ResponsiveContainer>
-    </div>
+    </article>
   )
 }
 

@@ -25,6 +25,9 @@
         color: white;
         font-size: $mediumSize;
         cursor: not-allowed;
+        @include responsive-maxWidth('m_l') {
+          font-size: $secondaryMediumSize;
+        }
         &--link {
           cursor: pointer;
           &:hover {
@@ -35,7 +38,7 @@
           color: $colorPrimary;
         }
         &--white {
-          color: white;
+          color: $white;
         }
       }
     }

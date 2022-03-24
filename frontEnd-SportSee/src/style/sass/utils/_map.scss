@@ -1,0 +1,20 @@
+//Breakpoint
+$breakpoints: (
+  'm': 1024px,
+  'm_l': 1150px,
+  'l': 1400px,
+  'xl': 1440px,
+);
+
+//map:LoadingSpinner
+$animationDelay: (
+  1: (
+    de-lay: 100ms,
+  ),
+  2: (
+    de-lay: 400ms,
+  ),
+  3: (
+    de-lay: 700ms,
+  ),
+);

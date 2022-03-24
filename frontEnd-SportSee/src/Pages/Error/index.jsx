@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom'
+import VerticalLayout from '../../Components/VerticalLayout/index'
+// import LoadingSpinner from '../../Components/LoadingSpinner/index'
 
 /**
  * Display error's page.
@@ -7,17 +9,9 @@ import { useParams } from 'react-router-dom'
 
 function Error() {
   const { id } = useParams()
-  // console.log(id)
-  // console.log(window.location.pathname.split('/')[1])
-  // console.log(window.location.pathname !== `/user/${id}/error`)
-
-  // if (window.location.pathname !== `/user/${id}/error`) {
-  //   console.log('okay')
-  //   window.location.pathname = `/user/${id}/error`
-  // }
 
   if (window.location.pathname.split('/')[1] === 'user') {
-    if (id === 'undefined') {
+    if (id === 'undefined' || (id !== '12' && id !== '18')) {
       window.location.pathname = `/error`
     } else {
       if (window.location.pathname !== `/user/${id}/error`) {
@@ -29,7 +23,12 @@ function Error() {
       window.location.pathname = `/error`
     }
   }
-
+  //-------------------------------------------------
+  /**
+   * It Change the URl Path on Click.
+   * @name changeUrlPath
+   * @returns An Url path.
+   */
   const changeUrlPath = () => {
     if (window.location.pathname === `/error`) {
       return (window.location.pathname = `/`)
@@ -39,13 +38,28 @@ function Error() {
   }
 
   return (
-    <button
-      onClick={() => {
-        changeUrlPath()
-      }}
-    >
-      Rafraichir la page!
-    </button>
+    <main>
+      <VerticalLayout />
+      <section id="error" className="errorContent">
+        <h1 className="errorContent__mainTitle">
+          <span className="errorContent__mainTitle__oups">Oups!</span> Hmmm...
+          😕
+        </h1>
+        <p className="errorContent__txt">
+          Nous n'arrivons pas a récupérer vos données...
+        </p>
+        <button
+          className="errorContent__refreshButton"
+          onClick={() => {
+            changeUrlPath()
+          }}
+        >
+          Rafraichir la page ! 😀
+        </button>
+      </section>
+    </main>
   )
+
+  // return <LoadingSpinner />
 }
 export default Error

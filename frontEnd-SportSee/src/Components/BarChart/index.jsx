@@ -55,16 +55,55 @@ function formatXAxis(number_nbTicks) {
  * Display a Bar Chart with activity's datas from the API.
  * @return { HtmlElements } BarChart's component is displayed dynamically.
  */
+//--------------------------
+//--------------------------
+/**
+ * It custom Tooltip's cursor.
+ * @return a customized cursor as a grey rectangle.
+ */
+function CustomCursor({ x, y, height, width }) {
+  // console.log(width)
+  if (width >= 92) {
+    return (
+      <rect
+        fill="#C4C4C450"
+        x={x + 21}
+        y={y}
+        width={60}
+        height={height}
+        cursor="pointer"
+      />
+    )
+  } else {
+    return (
+      <rect
+        fill="#C4C4C450"
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        cursor="pointer"
+      />
+    )
+  }
+}
 
+CustomCursor.propTypes = {
+  x: PropTypes.number,
+  y: PropTypes.number,
+  height: PropTypes.number,
+  width: PropTypes.number,
+}
+//--------------------------
+//--------------------------
 function Barchart({ datas }) {
-  // console.log(datas)
   const { sessions } = datas !== undefined && datas
 
   return (
-    <div className="barChart">
+    <article className="barChart">
       <span className="barChart__chartLabel">
         <h2 className="barChart__chartLabel__title">Activité quotidienne</h2>
-        <div className="barChart__chartLabel__legend">
+        <span className="barChart__chartLabel__legend">
           <span className="barChart__chartLabel__legend__weight">
             <FontAwesomeIcon
               icon={faCircle}
@@ -83,7 +122,7 @@ function Barchart({ datas }) {
               Calorie brûlées (kCal)
             </span>
           </span>
-        </div>
+        </span>
       </span>
 
       <ResponsiveContainer width="95%" height={200}>
@@ -117,7 +156,7 @@ function Barchart({ datas }) {
 
           <Tooltip
             content={<FormatTooltip />}
-            cursor={{ fill: ' #C4C4C450' }}
+            cursor={<CustomCursor />}
             isAnimationActive={true}
           />
           <Bar
@@ -138,7 +177,7 @@ function Barchart({ datas }) {
           />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </article>
   )
 }
 

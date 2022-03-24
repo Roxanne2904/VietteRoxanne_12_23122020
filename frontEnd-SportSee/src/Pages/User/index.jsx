@@ -54,56 +54,59 @@ function User({ datas }) {
   return booleen_boolIsDatasGet === true ? (
     <main>
       <VerticalLayout />
+      <div id="wrapper">
+        <div className="userContent">
+          <h1 className="userContent__mainTitle">
+            <span>{'Bonjour '}</span>
+            <span className="userContent__mainTitle userContent__mainTitle--color">{`${datas[0].userInfos.firstName}`}</span>
+          </h1>
+          <p className="userContent__subTitle">{`Félicitation ! Vous avez explosé vos objectifs hier 👏`}</p>
+          <div className="userContent__sportResult">
+            <section id="charts" className="userContent__sportResult__charts">
+              <div className="userContent__sportResult__charts__BarChart">
+                <UserActivity userId={id} />
+              </div>
+              <div className="userContent__sportResult__charts__secondariesCharts">
+                <AverageSessions userId={id} />
+                <Performance userId={id} />
+                <div className="userContent__sportResult__charts__secondariesCharts__radialChart">
+                  <Radialchart datas={datas} />
+                </div>
+              </div>
+            </section>
 
-      <div className="userContent">
-        <h1 className="userContent__mainTitle">
-          <span>{'Bonjour '}</span>
-          <span className="userContent__mainTitle userContent__mainTitle--color">{`${datas[0].userInfos.firstName}`}</span>
-        </h1>
-        <div className="userContent__subTitle">{`Félicitation ! Vous avez explosé vos objectifs hier 👏`}</div>
-        <section id="sportResult" className="userContent__sportResult">
-          <div className="userContent__sportResult__charts">
-            <div className="userContent__sportResult__charts__BarChart">
-              <UserActivity userId={id} />
-            </div>
-            <div className="userContent__sportResult__charts__secondariesCharts">
-              <AverageSessions userId={id} />
-              <Performance userId={id} />
-              <Radialchart datas={datas} />
-            </div>
+            <aside className="userContent__sportResult__infos">
+              <InfosCard
+                name="Calories"
+                unit={datas[0].keyData.calorieCount}
+                png={`${energyPng}`}
+                svg={`${energySvg}`}
+                color="red"
+              />
+              <InfosCard
+                name="Proteines"
+                unit={datas[0].keyData.proteinCount}
+                png={`${chickenPng}`}
+                svg={`${chickenSvg}`}
+                color="blue"
+              />
+              <InfosCard
+                name="Glucides"
+                unit={datas[0].keyData.carbohydrateCount}
+                png={`${applePng}`}
+                svg={`${appleSvg}`}
+                color="yellow"
+              />
+              <InfosCard
+                name="Lipides"
+                unit={datas[0].keyData.lipidCount}
+                png={`${cheeseburgerPng}`}
+                svg={`${cheeseburgerSvg}`}
+                color="pink"
+              />
+            </aside>
           </div>
-
-          <div className="userContent__sportResult__infos">
-            <InfosCard
-              name="Calories"
-              unit={datas[0].keyData.calorieCount}
-              png={`${energyPng}`}
-              svg={`${energySvg}`}
-              color="red"
-            />
-            <InfosCard
-              name="Proteines"
-              unit={datas[0].keyData.proteinCount}
-              png={`${chickenPng}`}
-              svg={`${chickenSvg}`}
-              color="blue"
-            />
-            <InfosCard
-              name="Glucides"
-              unit={datas[0].keyData.carbohydrateCount}
-              png={`${applePng}`}
-              svg={`${appleSvg}`}
-              color="yellow"
-            />
-            <InfosCard
-              name="Lipides"
-              unit={datas[0].keyData.lipidCount}
-              png={`${cheeseburgerPng}`}
-              svg={`${cheeseburgerSvg}`}
-              color="pink"
-            />
-          </div>
-        </section>
+        </div>
       </div>
     </main>
   ) : (

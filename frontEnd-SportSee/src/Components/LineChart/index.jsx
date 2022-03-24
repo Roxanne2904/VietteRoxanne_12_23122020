@@ -80,16 +80,15 @@ Rectangle.propTypes = {
  */
 
 function Linechart({ datas }) {
-  // console.log(datas)
   const { sessions } = datas !== undefined && datas
-  // console.log(sessions)
 
   return (
-    <div className="lineChart">
+    <article className="lineChart">
       <h2 className="lineChart__title">Durée moyenne des sessions</h2>
       <ResponsiveContainer
         className="lineChart__responsiveContainer"
-        width="100%"
+        min-width="30%"
+        max-width="33%"
         height="100%"
       >
         <LineChart data={datas && sessions} margin={0}>
@@ -145,7 +144,7 @@ function Linechart({ datas }) {
           ))}
         </ul>
       </div> */}
-    </div>
+    </article>
   )
 }
 
