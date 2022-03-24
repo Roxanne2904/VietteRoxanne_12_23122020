@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 
 function AverageSessions({ userId }) {
   const object_objFetchResponse = useFetch(
-    isMockedDatas(false, userId, 'averageSessions')
+    isMockedDatas(true, userId, 'averageSessions')
   )
   const { datas, isLoading, error } = object_objFetchResponse
   const { data } = datas !== undefined && datas

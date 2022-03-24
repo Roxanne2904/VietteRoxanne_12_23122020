@@ -16,7 +16,7 @@ function isMockedDatas(booleen, id, datasType) {
       case 'averageSessions':
         return `../mocked_user${id}Datas/average-sessions.json`
       case 'performance':
-        return `../mocked_user${id}Datas/performance.json`
+        return `../mocked_user${id}Datas/userPerformance.json`
       default:
         return null
     }
