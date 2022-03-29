@@ -13,6 +13,7 @@ export function useFetch(url) {
   const [error, setError] = useState(false)
 
   useEffect(() => {
+    // console.log(!url) //false
     if (!url) return
     setLoading(true)
 

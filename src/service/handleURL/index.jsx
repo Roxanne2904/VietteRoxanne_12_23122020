@@ -1,5 +1,5 @@
 /**
- * It sorts what kind of url should be returned based on data's type.
+ * It sort what kind of url should be returned based on datas's type.
  * @param { Booleen } booleen
  * @param { Number } id Id of the user as an integer.
  * @param { String } datasType Datas's type of an existing URL.
