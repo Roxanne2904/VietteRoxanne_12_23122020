@@ -31,9 +31,9 @@ Code squad:
 ### 1. Launching the micro API: 
 * ```cd backEnd-sportSee/``` 
 * if dependencies are not installed do ```yarn```,
-* Then ```npm start``` to run the micro Api.
+* Then ```yarn dev``` or ```npm start``` to run the micro Api.
 * Be on port 3000.
-* have a look on endpoints of the Api---[SportSee API -documentation-](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#4-endpoints)---.
+* have a look on endpoints of the Api --->[SportSee API-Documentation-](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#4-endpoints).
 ### 2. Launching the Application: 
 * ```cd ../``` to come back in FrontEnd-SportSee folder.
 * ```npm start``` to run the application.

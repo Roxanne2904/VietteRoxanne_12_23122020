@@ -373,6 +373,11 @@ code {
   left: 10%;
   font-size: 1rem;
 }
+@media screen and (max-width: 1150px) {
+  .radialChart__title {
+    left: -50%;
+  }
+}
 .radialChart__scoreContent {
   position: absolute;
   top: 30%;

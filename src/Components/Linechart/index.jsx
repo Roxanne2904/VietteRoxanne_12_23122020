@@ -129,6 +129,7 @@ function Linechart({ datas }) {
           </defs>
           <Line
             type="natural"
+            // type="monotone"
             dataKey="sessionLength"
             stroke="url(#linear)"
             activeDot={Rectangle}

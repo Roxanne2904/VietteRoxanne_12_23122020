@@ -12,6 +12,9 @@
     top: 8%;
     left: 10%;
     font-size: $secondarySmallSize;
+    @include responsive-maxWidth('m_l') {
+      left: -50%;
+    }
   }
   &__scoreContent {
     position: absolute;

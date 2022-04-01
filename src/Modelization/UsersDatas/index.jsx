@@ -15,7 +15,7 @@ function UserDatas() {
   let array_arrUserDatas = []
   const { id } = useParams()
 
-  const fetchResponse = useFetch(isMockedDatas(true, id, 'userDatas'))
+  const fetchResponse = useFetch(isMockedDatas(false, id, 'userDatas'))
   const { datas, isLoading, error } = fetchResponse
 
   const isDatasGet = datas.data !== undefined && datas.error !== true
