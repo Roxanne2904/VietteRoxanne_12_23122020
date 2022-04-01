@@ -10,7 +10,7 @@ import PropType from 'prop-types'
 
 function UserActivity({ userId }) {
   const object_objFetchResponse = useFetch(
-    isMockedDatas(false, userId, 'userActivity')
+    isMockedDatas(true, userId, 'userActivity')
   )
   const { datas, isLoading, error } = object_objFetchResponse
   const { data } = datas !== undefined && datas

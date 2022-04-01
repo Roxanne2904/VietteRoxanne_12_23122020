@@ -43,6 +43,6 @@ Here is the link to see the model ---> [Figma's link](https://www.figma.com/file
 ## User Stories's link
 Here is the link to see the KANBAN ---> [Kanban](https://www.notion.so/Tableau-de-bord-SportSee-6686aa4b5f44417881a4884c9af5669e) <---
 ## Netlify deploy-status
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a650edb8-ea85-40a8-acff-0a466aad3e21/deploy-status)](https://app.netlify.com/sites/oc-rv-sportsee-project/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1c3d9ae0-cad0-485e-a9f5-f5ee79e04674/deploy-status)](https://app.netlify.com/sites/oc-rv-sportsee/deploys)
 
-[Watch the app here! -with mocked datas-](https://oc-rv-sportsee-project.netlify.app/)
+[Watch the app here! -with mocked datas-](https://oc-rv-sportsee.netlify.app/)

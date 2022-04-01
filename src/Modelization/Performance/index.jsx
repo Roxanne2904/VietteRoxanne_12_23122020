@@ -12,7 +12,7 @@ import PropTypes from 'prop-types'
 function Performance({ userId }) {
   let object_objCustomDatas
   const object_objFetchResponse = useFetch(
-    isMockedDatas(false, userId, 'performance')
+    isMockedDatas(true, userId, 'performance')
   )
   const { datas, isLoading, error } =
     object_objFetchResponse !== undefined && object_objFetchResponse
