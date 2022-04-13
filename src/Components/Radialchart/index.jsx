@@ -9,8 +9,9 @@ import PropTypes from 'prop-types'
 function Radialchart({ datas }) {
   // console.log(datas)
   const { score, percentageScore } = datas[0] !== undefined && datas[0]
-
+  // console.log(score) // score = 0.12
   let array_arrScoreData = [
+    // { score: 1, fill: '#FF0000' },
     { score: 1, fill: ' #fbfbfb' },
     { score: score, fill: '#FF0000' },
   ]

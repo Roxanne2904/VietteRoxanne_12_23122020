@@ -14,7 +14,9 @@ export function useFetch(url) {
 
   useEffect(() => {
     // console.log(!url) //false
+    // console.log(url)
     if (!url) return
+
     setLoading(true)
 
     async function fetchData() {
@@ -30,8 +32,9 @@ export function useFetch(url) {
       }
     }
     fetchData()
-  }, [url])
+  }, [url, setDatas, setError, setLoading])
 
+  // console.log({ isLoading, datas, error })
   return { isLoading, datas, error }
 }
 export default useFetch

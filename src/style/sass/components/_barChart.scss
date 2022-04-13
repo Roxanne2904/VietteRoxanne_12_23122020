@@ -45,7 +45,10 @@
   @include displayedInColumnAndCenter;
   justify-content: space-evenly;
   background-color: $colorRed01;
-  margin: 20px;
+  margin: 30px;
+  @include responsive-maxWidth('xl') {
+    margin: 15px;
+  }
   color: white;
   width: 43px;
   height: 67px;

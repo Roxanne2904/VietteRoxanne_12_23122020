@@ -15,12 +15,13 @@ If you are working with several versions of NodeJS, we recommend you install [nv
 A list of technologies used within the project:
 * CSS3
 * HTML5
-* SASS: version 1.49.7 compiled with dart2js 2.15.1
+* SASS: version 1.50.0 compiled with dart2js 2.16.2
 * REACT ROUTER: Version "6.2.1"
 * PROP-TYPES: Version "15.8.1"
 * GIT et GitHub
-* NODE: version 17.3.1
-* YARN: version 1.22.17
+* NVM: running version 1.1.9
+* NODE: version 16.13.2
+* YARN: version 1.22.18
 * VSCode: version 1.64.2
 
 ## Authors
@@ -36,7 +37,7 @@ Code squad:
 * have a look on endpoints of the Api --->[SportSee API-Documentation-](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#4-endpoints).
 ### 2. Launching the Application: 
 * ```cd ../``` to come back in FrontEnd-SportSee folder.
-* ```npm start``` to run the application.
+* ```npm start``` or ```yarn start``` to run the application.
 * Be on port 3001.
 ## Figma's link
 Here is the link to see the model ---> [Figma's link](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=1%3A2) <---
