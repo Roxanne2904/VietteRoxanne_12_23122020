@@ -32,7 +32,7 @@ export function useFetch(url) {
       }
     }
     fetchData()
-  }, [url, setDatas, setError, setLoading])
+  }, [url])
 
   // console.log({ isLoading, datas, error })
   return { isLoading, datas, error }
