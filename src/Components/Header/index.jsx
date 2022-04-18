@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 /**
+ * It switch profile's tag  to white, on the top navigation.
+ * It update the class name to change the color.
+ * @param { String } color Color is related to useState().
+ * @param { Function } setColor setColor is related to useState().
+ * @param { Object } profileRef ProfileRef is related to React.createRef()
+ */
+
+function switchProfiletagToWhite(color, setColor, profileRef) {
+  setColor('white')
+  profileRef.current.className = ` header__nav__ul__li header__nav__ul__li--${color}`
+}
+
+/**
  * Display the header with the navigation.
  * @return { HtmlElements } Header's component is displayed dynamically.
  */
@@ -11,19 +24,7 @@ import { useState } from 'react'
 function Header() {
   let profileRef = React.createRef()
   const [color, setColor] = useState('white')
-  //-----------------
-  /**
-   * @name switchToWhite
-   * It switch profile's tag  to white, on the top navigation.
-   * It update the class name to change the color.
-   */
 
-  function switchToWhite() {
-    setColor('white')
-    profileRef.current.className = ` header__nav__ul__li header__nav__ul__li--${color}`
-  }
-  //-----------------
-  //-----------------
   return (
     <header className="header">
       <div className="header__imgContent">
@@ -37,7 +38,9 @@ function Header() {
         <ul className="header__nav__ul">
           <li>
             <Link
-              onClick={() => switchToWhite()}
+              onClick={() =>
+                switchProfiletagToWhite(color, setColor, profileRef)
+              }
               className="header__nav__ul__li header__nav__ul__li--link"
               to="/"
             >

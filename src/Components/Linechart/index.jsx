@@ -33,8 +33,7 @@ FormatTooltip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
 }
-//--------------------------
-//--------------------------
+
 /**
  * It turn XAxis's ticks, currently numbers, into letters.
  * @param { Number } number_nbTicks Ticks of XAxis as an integer.
@@ -43,8 +42,7 @@ FormatTooltip.propTypes = {
 function formatTicks(number_nbTicks) {
   return formatDay(number_nbTicks)
 }
-//--------------------------
-//--------------------------
+
 /**
  * It Create a rectangle and circles when the dot, from the chart, is active.
  * @return { HtmlElements } Rectangle's component is displayed.
@@ -72,13 +70,11 @@ Rectangle.propTypes = {
   cx: PropTypes.number,
   cy: PropTypes.number,
 }
-//--------------------------
-//--------------------------
+
 /**
  * Display a line Chart with average sessions's datas from the API.
  * @return { HtmlElements } SimpleLineChart's component is displayed dynamically.
  */
-
 function Linechart({ datas }) {
   const { sessions } = datas !== undefined && datas
 

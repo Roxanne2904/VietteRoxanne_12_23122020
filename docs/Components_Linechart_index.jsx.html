@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Linechart/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Linechart/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts'
+import { formatUnit } from '../../CustomFormat/index'
+import { formatDay } from '../../CustomFormat/index'
+import PropTypes from 'prop-types'
+
+/**
+ * It custom tooltip from this line chart.
+ * @return { HtmlElements } FormatTooltip's component is displayed.
+ */
+
+const FormatTooltip = ({ active, payload }) => {
+  if (active) {
+    return (
+      &lt;div className="custom-Linetooltip">
+        &lt;p className="custom-Linetooltip__minutes">
+          {formatUnit(payload[0].value, 'sessionLength')}
+        &lt;/p>
+      &lt;/div>
+    )
+  }
+
+  return null
+}
+
+FormatTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+}
+
+/**
+ * It turn XAxis's ticks, currently numbers, into letters.
+ * @param { Number } number_nbTicks Ticks of XAxis as an integer.
+ * @returns { String } if ticks was "1" it will be returned as "L"
+ */
+function formatTicks(number_nbTicks) {
+  return formatDay(number_nbTicks)
+}
+
+/**
+ * It Create a rectangle and circles when the dot, from the chart, is active.
+ * @return { HtmlElements } Rectangle's component is displayed.
+ */
+
+function Rectangle({ cx, cy }) {
+  return (
+    &lt;svg>
+      &lt;rect
+        x={cx}
+        y={0}
+        width="100%"
+        height="100%"
+        fill="#00000030"
+        rx="5"
+        ry="5"
+      />
+      &lt;circle cx={cx} cy={cy} r="9" fill="#FFFFFF50" />
+      &lt;circle cx={cx} cy={cy} r="4" fill="#FFFFFF" />
+    &lt;/svg>
+  )
+}
+
+Rectangle.propTypes = {
+  cx: PropTypes.number,
+  cy: PropTypes.number,
+}
+
+/**
+ * Display a line Chart with average sessions's datas from the API.
+ * @return { HtmlElements } SimpleLineChart's component is displayed dynamically.
+ */
+function Linechart({ datas }) {
+  const { sessions } = datas !== undefined &amp;&amp; datas
+
+  return (
+    &lt;article className="lineChart">
+      &lt;h2 className="lineChart__title">Durée moyenne des sessions&lt;/h2>
+      &lt;ResponsiveContainer
+        className="lineChart__responsiveContainer"
+        min-width="30%"
+        max-width="33%"
+        height="100%"
+      >
+        &lt;LineChart data={datas &amp;&amp; sessions} margin={0}>
+          &lt;Tooltip
+            content={&lt;FormatTooltip />}
+            allowEscapeViewBox={{ x: true, y: true }}
+            cursor={false}
+            wrapperStyle={{ top: -55, left: -7 }}
+          />
+          &lt;XAxis dataKey="day" scale="none" hide={true} />
+          &lt;XAxis
+            dataKey="day"
+            scale="band"
+            // hide={true}
+            tickFormatter={formatTicks}
+            tickMargin={-6}
+            tick={{ fill: '#FFFFFF60', fontSize: 12 }}
+            tickLine={false}
+            axisLine={false}
+            interval="preserveStartEnd"
+            xAxisId={'day'}
+          />
+
+          &lt;YAxis
+            type="number"
+            domain={['dataMin-20', 'dataMax+45']}
+            hide={true}
+          />
+          &lt;defs>
+            &lt;linearGradient id="linear" x1="0" y1="0" x2="1" y2="0">
+              &lt;stop offset="0%" stopColor="#FFFFFF" stopOpacity={0.1} />
+              &lt;stop offset="10%" stopColor="#FFFFFF" stopOpacity={0.4} />
+              &lt;stop offset="30%" stopColor="#FFFFFF" stopOpacity={0.5} />
+              &lt;stop offset="50%" stopColor="#FFFFFF" stopOpacity={0.8} />
+              &lt;stop offset="96%" stopColor="#FFFFFF" stopOpacity={1} />
+              &lt;stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.1} />
+            &lt;/linearGradient>
+          &lt;/defs>
+          &lt;Line
+            type="natural"
+            // type="monotone"
+            dataKey="sessionLength"
+            stroke="url(#linear)"
+            activeDot={Rectangle}
+            dot={false}
+            strokeWidth={2.3}
+          />
+        &lt;/LineChart>
+      &lt;/ResponsiveContainer>
+      {/* &lt;div className="lineChart__weekDaysTicks">
+        &lt;ul className="lineChart__weekDaysTicks__ul">
+          {sessions.map((nb) => (
+            &lt;li key={`${formatDay(nb.day)}-${nb.day}`}>{formatDay(nb.day)}&lt;/li>
+          ))}
+        &lt;/ul>
+      &lt;/div> */}
+    &lt;/article>
+  )
+}
+
+Linechart.propTypes = {
+  datas: PropTypes.shape({
+    sessions: PropTypes.arrayOf(
+      PropTypes.shape({
+        day: PropTypes.number.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+      })
+    ),
+    userId: PropTypes.number.isRequired,
+  }).isRequired,
+}
+
+export default Linechart
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#Barchart">Barchart</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FormatCursor">FormatCursor</a></li><li><a href="global.html#formatDay">formatDay</a></li><li><a href="global.html#formatKind">formatKind</a></li><li><a href="global.html#formatTicks">formatTicks</a></li><li><a href="global.html#FormatTooltip">FormatTooltip</a></li><li><a href="global.html#formatUnit">formatUnit</a></li><li><a href="global.html#formatXAxis">formatXAxis</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconToNavigate">IconToNavigate</a></li><li><a href="global.html#InfosCard">InfosCard</a></li><li><a href="global.html#isMockedDatas">isMockedDatas</a></li><li><a href="global.html#itGenerateClassNamesAndGetDomProfileTag">itGenerateClassNamesAndGetDomProfileTag</a></li><li><a href="global.html#Linechart">Linechart</a></li><li><a href="global.html#LoadingSpinner">LoadingSpinner</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Radarchart">Radarchart</a></li><li><a href="global.html#Radialchart">Radialchart</a></li><li><a href="global.html#Rectangle">Rectangle</a></li><li><a href="global.html#switchProfiletagToWhite">switchProfiletagToWhite</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserActivity">UserActivity</a></li><li><a href="global.html#UserDatas">UserDatas</a></li><li><a href="global.html#VerticalLayout">VerticalLayout</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Apr 18 2022 16:44:42 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

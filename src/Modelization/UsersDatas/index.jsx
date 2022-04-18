@@ -4,7 +4,7 @@ import isMockedDatas from '../../service/handleURL'
 import { formatUnit } from '../../CustomFormat'
 import User from '../../Pages/User/index'
 import Error from '../../Pages/Error'
-import LoadingSpinner from '../../Components/LoadingSpinner/index'
+import LoadingSpinner from '../../Pages/LoadingSpinner/index'
 
 /**
  * Fetch and modelized user's datas.

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 
 /**
- * Send custom request using fetch api.
- * @name useFetch Custom Hook
+ * This useFetch is a custom hook and it send custom request using fetch api.
  * @param { String } url
- * @returns { Object.<isLoading: Booleen, datas: Object, error: Booleen> }
+ * @returns { Object } Object.<isLoading: Booleen, datas: Object, error: Booleen>
  */
 
 export function useFetch(url) {

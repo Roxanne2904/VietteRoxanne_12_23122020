@@ -1,4 +1,9 @@
-import VerticalLayout from '../VerticalLayout'
+import VerticalLayout from '../../Components/VerticalLayout'
+
+/**
+ * Display the LoadingSpinner's page with  a loading spinner.
+ * @returns { HtmlElements } LoadingSpinner's component is displayed dynamically.
+ */
 
 function LoadingSpinner() {
   return (

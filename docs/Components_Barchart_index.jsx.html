@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Barchart/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Barchart/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+  BarChart,
+  Bar,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { formatUnit } from '../../CustomFormat/index'
+import PropTypes from 'prop-types'
+
+/**
+ * It custom the tooltip bar chart.
+ * @returns { HtmlElements } FormatTooltip's component.
+ */
+
+const FormatTooltip = ({ active, payload }) => {
+  if (active) {
+    return (
+      &lt;div className="custom-Bartooltip">
+        &lt;p className="custom-Bartooltip__kilogram">
+          {formatUnit(payload[1].value, 'kilogram')}
+        &lt;/p>
+        &lt;p className="custom-Bartooltip__calories">
+          {formatUnit(payload[0].value, 'calories')}
+        &lt;/p>
+      &lt;/div>
+    )
+  }
+
+  return null
+}
+
+FormatTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+}
+
+/**
+ * Add "+1" to XAxis ticks in order to they start to "1" and not "0".
+ * @param { Number } number_nbTicks Ticks of XAxis as an integer.
+ * @returns { Number } current tick + 1
+ */
+
+function formatXAxis(number_nbTicks) {
+  return number_nbTicks + 1
+}
+
+/**
+ * It custom Tooltip's cursor.
+ * @return a customized cursor as a grey rectangle.
+ */
+function FormatCursor({ x, y, height, width }) {
+  // console.log(width)
+  if (width >= 92) {
+    return (
+      &lt;rect
+        fill="#C4C4C450"
+        x={x + 21}
+        y={y}
+        width={60}
+        height={height}
+        cursor="pointer"
+      />
+    )
+  } else {
+    return (
+      &lt;rect
+        fill="#C4C4C450"
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        cursor="pointer"
+      />
+    )
+  }
+}
+
+FormatCursor.propTypes = {
+  x: PropTypes.number,
+  y: PropTypes.number,
+  height: PropTypes.number,
+  width: PropTypes.number,
+}
+
+/**
+ * Display a Bar Chart with activity's datas from the API.
+ * @return { HtmlElements } BarChart's component is displayed dynamically.
+ */
+function Barchart({ datas }) {
+  const { sessions } = datas !== undefined &amp;&amp; datas
+
+  return (
+    &lt;article className="barChart">
+      &lt;span className="barChart__chartLabel">
+        &lt;h2 className="barChart__chartLabel__title">Activité quotidienne&lt;/h2>
+        &lt;span className="barChart__chartLabel__legend">
+          &lt;span className="barChart__chartLabel__legend__weight">
+            &lt;FontAwesomeIcon
+              icon={faCircle}
+              className="barChart__chartLabel__legend__weight__icon"
+            />
+            &lt;span className="barChart__chartLabel__legend__weight__unit">
+              Poids (kg)
+            &lt;/span>
+          &lt;/span>
+          &lt;span className="barChart__chartLabel__legend__calories">
+            &lt;FontAwesomeIcon
+              icon={faCircle}
+              className="barChart__chartLabel__legend__calories__icon barChart__chartLabel__legend__calories__icon--red"
+            />
+            &lt;span className="barChart__chartLabel__legend__calories__unit">
+              Calorie brûlées (kCal)
+            &lt;/span>
+          &lt;/span>
+        &lt;/span>
+      &lt;/span>
+
+      &lt;ResponsiveContainer width="95%" height={200}>
+        &lt;BarChart data={datas &amp;&amp; sessions} width={200} height={200}>
+          &lt;CartesianGrid
+            stroke="#DEDEDE"
+            strokeDasharray="2 2"
+            vertical={false}
+          />
+          &lt;XAxis
+            tickFormatter={formatXAxis}
+            axisLine={false}
+            tickLine={false}
+            tickSize={20}
+            tick={{ fill: '#9B9EAC', fontWeight: 700 }}
+          />
+
+          &lt;YAxis
+            yAxisId="right"
+            orientation="right"
+            axisLine={false}
+            tickLine={false}
+            tickSize={10}
+            tick={{ fill: '#9B9EAC', fontWeight: 700 }}
+            type="number"
+            domain={['dataMin-2', 'dataMax+1']}
+            tickCount={3}
+            dataKey="kilogram"
+          />
+          &lt;YAxis yAxisId="left" dataKey="calories" hide={true} />
+
+          &lt;Tooltip
+            content={&lt;FormatTooltip />}
+            cursor={&lt;FormatCursor />}
+            isAnimationActive={true}
+          />
+          &lt;Bar
+            type="monotone"
+            dataKey="calories"
+            fill="#E60000"
+            barSize={7}
+            radius={[50, 50, 0, 0]}
+            yAxisId="left"
+          />
+          &lt;Bar
+            type="monotone"
+            dataKey="kilogram"
+            barSize={7}
+            fill="#282D30"
+            radius={[50, 50, 0, 0]}
+            yAxisId="right"
+          />
+        &lt;/BarChart>
+      &lt;/ResponsiveContainer>
+    &lt;/article>
+  )
+}
+
+Barchart.propTypes = {
+  datas: PropTypes.shape({
+    sessions: PropTypes.arrayOf(
+      PropTypes.shape({
+        day: PropTypes.string,
+        kilogram: PropTypes.number.isRequired,
+        calories: PropTypes.number.isRequired,
+      })
+    ),
+    userId: PropTypes.number.isRequired,
+  }).isRequired,
+}
+
+export default Barchart
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#Barchart">Barchart</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FormatCursor">FormatCursor</a></li><li><a href="global.html#formatDay">formatDay</a></li><li><a href="global.html#formatKind">formatKind</a></li><li><a href="global.html#formatTicks">formatTicks</a></li><li><a href="global.html#FormatTooltip">FormatTooltip</a></li><li><a href="global.html#formatUnit">formatUnit</a></li><li><a href="global.html#formatXAxis">formatXAxis</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconToNavigate">IconToNavigate</a></li><li><a href="global.html#InfosCard">InfosCard</a></li><li><a href="global.html#isMockedDatas">isMockedDatas</a></li><li><a href="global.html#itGenerateClassNamesAndGetDomProfileTag">itGenerateClassNamesAndGetDomProfileTag</a></li><li><a href="global.html#Linechart">Linechart</a></li><li><a href="global.html#LoadingSpinner">LoadingSpinner</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Radarchart">Radarchart</a></li><li><a href="global.html#Radialchart">Radialchart</a></li><li><a href="global.html#Rectangle">Rectangle</a></li><li><a href="global.html#switchProfiletagToWhite">switchProfiletagToWhite</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserActivity">UserActivity</a></li><li><a href="global.html#UserDatas">UserDatas</a></li><li><a href="global.html#VerticalLayout">VerticalLayout</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Apr 18 2022 16:44:42 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

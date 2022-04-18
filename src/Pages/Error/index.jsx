@@ -23,10 +23,9 @@ function Error() {
       window.location.pathname = `/error`
     }
   }
-  //-------------------------------------------------
+
   /**
-   * It Change the URl Path on Click.
-   * @name changeUrlPath
+   * It Change the Url Path on Click.
    * @returns An Url path.
    */
   const changeUrlPath = () => {

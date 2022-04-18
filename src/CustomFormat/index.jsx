@@ -20,12 +20,19 @@ export function formatUnit(number, unit) {
 }
 
 /**
- * From performance's datas, in data's array,
+ * From performance's datas, in data's key,
  * it custom kind key's values to string (french translation).
- * @param { Array.<Object.<value: Number, kind: Number>> } array Array From data's key in datas.
- * @param { Object.<kind: String> } obj Obj from kind's key in datas.
- * @param { Object.<data: Array, kind: Object, userId: Number>} datas
- * @returns { Object.<data: Array.<Object.<value: Number, kind: String>, kind: Object, userId: Number>}
+ * @param { Object[] } array Array From data's key in datas.
+ * @param { Number } array[].value Number as an integer.
+ * @param { Number } array[].kind Number as an integer.
+ * @param { Object } obj Obj from kind's key in datas.
+ * @param { String } obj.kind
+ * @param { Object } datas
+ * @param { Object[] } datas.data equal to "array" from parameters.
+ * @param { Object } datas.kind equal to "obj" from parameters.
+ * @param { Number } datas.userId Number as an integer.
+ * @returns { Object } it return array[ ].kind as a String (ex: 1 became "endurance").
+ * { Object.<data: Array.<Object.<value: Number, kind: String>, kind: Object, userId: Number>}
  */
 
 export function formatKind(array, obj, datas) {

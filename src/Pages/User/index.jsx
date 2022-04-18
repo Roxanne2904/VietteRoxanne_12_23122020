@@ -25,27 +25,28 @@ import appleSvg from '../../asset/svg/appleSvg.svg'
 import cheeseburgerSvg from '../../asset/svg/cheeseburgerSvg.svg'
 
 /**
- *@name activateProfileTag
- * It switch to red the profile's tag on the top navigation.
- * It update the class name to change the color.
+ * It get profile's tag as a Dom Element and it generate scss's classNames as a string.
+ * These ClassNames are generated in order to styled '<li></li>' from the Header's component.
+ * @returns { Object } { Object.<string_strClassNames: String, string_strProfileTag: String> }
  */
-const activateProfileTag = () => {
-  if (window.location.pathname.split('/')[1] === 'user') {
-    let string_strProfileTag = document.querySelector('#profile')
 
-    string_strProfileTag.className =
-      ' header__nav__ul__li header__nav__ul__li--red'
+const itGenerateClassNamesAndGetDomProfileTag = () => {
+  if (window.location.pathname.split('/')[1] === 'user') {
+    let string_strDomProfileTag = document.querySelector('#profile')
+    let string_strClassNames = ' header__nav__ul__li header__nav__ul__li--red'
+    return { string_strClassNames, string_strDomProfileTag }
   }
 }
-//------------------------------------
-//------------------------------------
+
 /**
  * Display user profile's page.
  * @returns { HtmlElements } User's component is displayed dynamically.
  */
 
 function User({ datas }) {
-  activateProfileTag()
+  const { string_strDomProfileTag, string_strClassNames } =
+    itGenerateClassNamesAndGetDomProfileTag()
+  string_strDomProfileTag.className = string_strClassNames
   //----------------------
   let { id } = useParams()
   id = parseInt(id)

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Pages/User/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Pages/User/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useParams } from 'react-router-dom'
+import PropType from 'prop-types'
+// import { useFetch } from '../../service/useFetch/index'
+// import isMockedDatas from '../../service/handleURL'
+//Components
+import VerticalLayout from '../../Components/VerticalLayout'
+import InfosCard from '../../Components/InfosCard'
+import Error from '../Error'
+import AverageSessions from '../../Modelization/AverageSessions'
+import Performance from '../../Modelization/Performance'
+// import Barchart from '../../Components/BarChart/index'
+import UserActivity from '../../Modelization/UserActivity/index'
+import Radialchart from '../../Components/Radialchart'
+//icones
+
+//PNG FILES
+import energyPng from '../../asset/png/energyPng.png'
+import chickenPng from '../../asset/png/chickenPng.png'
+import applePng from '../../asset/png/applePng.png'
+import cheeseburgerPng from '../../asset/png/cheeseburgerPng.png'
+//SVG FILES
+import energySvg from '../../asset/svg/energySvg.svg'
+import chickenSvg from '../../asset/svg/chickenSvg.svg'
+import appleSvg from '../../asset/svg/appleSvg.svg'
+import cheeseburgerSvg from '../../asset/svg/cheeseburgerSvg.svg'
+
+/**
+ * It get profile's tag as a Dom Element and it generate scss's classNames as a string.
+ * These ClassNames are generated in order to styled '&lt;li>&lt;/li>' from the Header's component.
+ * @returns { Object } { Object.&lt;string_strClassNames: String, string_strProfileTag: String> }
+ */
+
+const itGenerateClassNamesAndGetDomProfileTag = () => {
+  if (window.location.pathname.split('/')[1] === 'user') {
+    let string_strDomProfileTag = document.querySelector('#profile')
+    let string_strClassNames = ' header__nav__ul__li header__nav__ul__li--red'
+    return { string_strClassNames, string_strDomProfileTag }
+  }
+}
+
+/**
+ * Display user profile's page.
+ * @returns { HtmlElements } User's component is displayed dynamically.
+ */
+
+function User({ datas }) {
+  const { string_strDomProfileTag, string_strClassNames } =
+    itGenerateClassNamesAndGetDomProfileTag()
+  string_strDomProfileTag.className = string_strClassNames
+  //----------------------
+  let { id } = useParams()
+  id = parseInt(id)
+  const booleen_boolIsDatasGet = datas[0] !== false
+
+  return booleen_boolIsDatasGet === true ? (
+    &lt;main>
+      &lt;VerticalLayout />
+      &lt;div id="wrapper">
+        &lt;div className="userContent">
+          &lt;h1 className="userContent__mainTitle">
+            &lt;span>{'Bonjour '}&lt;/span>
+            &lt;span className="userContent__mainTitle userContent__mainTitle--color">{`${datas[0].userInfos.firstName}`}&lt;/span>
+          &lt;/h1>
+          &lt;p className="userContent__subTitle">{`Félicitation ! Vous avez explosé vos objectifs hier 👏`}&lt;/p>
+          &lt;div className="userContent__sportResult">
+            &lt;section id="charts" className="userContent__sportResult__charts">
+              &lt;div className="userContent__sportResult__charts__BarChart">
+                &lt;UserActivity userId={id} />
+              &lt;/div>
+              &lt;div className="userContent__sportResult__charts__secondariesCharts">
+                &lt;AverageSessions userId={id} />
+                &lt;Performance userId={id} />
+                &lt;div className="userContent__sportResult__charts__secondariesCharts__radialChart">
+                  &lt;Radialchart datas={datas} />
+                &lt;/div>
+              &lt;/div>
+            &lt;/section>
+
+            &lt;aside className="userContent__sportResult__infos">
+              &lt;InfosCard
+                name="Calories"
+                unit={datas[0].keyData.calorieCount}
+                png={`${energyPng}`}
+                svg={`${energySvg}`}
+                color="red"
+              />
+              &lt;InfosCard
+                name="Proteines"
+                unit={datas[0].keyData.proteinCount}
+                png={`${chickenPng}`}
+                svg={`${chickenSvg}`}
+                color="blue"
+              />
+              &lt;InfosCard
+                name="Glucides"
+                unit={datas[0].keyData.carbohydrateCount}
+                png={`${applePng}`}
+                svg={`${appleSvg}`}
+                color="yellow"
+              />
+              &lt;InfosCard
+                name="Lipides"
+                unit={datas[0].keyData.lipidCount}
+                png={`${cheeseburgerPng}`}
+                svg={`${cheeseburgerSvg}`}
+                color="pink"
+              />
+            &lt;/aside>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/main>
+  ) : (
+    &lt;Error />
+  )
+}
+
+User.propTypes = {
+  datas: PropType.arrayOf(
+    PropType.shape({
+      id: PropType.number,
+      keyData: PropType.objectOf(PropType.string),
+      percentageScore: PropType.string,
+      score: PropType.number,
+      userInfos: PropType.shape({
+        age: PropType.number,
+        firstName: PropType.string,
+        lastName: PropType.string,
+      }),
+    })
+  ).isRequired,
+}
+
+export default User
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#Barchart">Barchart</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FormatCursor">FormatCursor</a></li><li><a href="global.html#formatDay">formatDay</a></li><li><a href="global.html#formatKind">formatKind</a></li><li><a href="global.html#formatTicks">formatTicks</a></li><li><a href="global.html#FormatTooltip">FormatTooltip</a></li><li><a href="global.html#formatUnit">formatUnit</a></li><li><a href="global.html#formatXAxis">formatXAxis</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconToNavigate">IconToNavigate</a></li><li><a href="global.html#InfosCard">InfosCard</a></li><li><a href="global.html#isMockedDatas">isMockedDatas</a></li><li><a href="global.html#itGenerateClassNamesAndGetDomProfileTag">itGenerateClassNamesAndGetDomProfileTag</a></li><li><a href="global.html#Linechart">Linechart</a></li><li><a href="global.html#LoadingSpinner">LoadingSpinner</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Radarchart">Radarchart</a></li><li><a href="global.html#Radialchart">Radialchart</a></li><li><a href="global.html#Rectangle">Rectangle</a></li><li><a href="global.html#switchProfiletagToWhite">switchProfiletagToWhite</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserActivity">UserActivity</a></li><li><a href="global.html#UserDatas">UserDatas</a></li><li><a href="global.html#VerticalLayout">VerticalLayout</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Apr 18 2022 16:44:42 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

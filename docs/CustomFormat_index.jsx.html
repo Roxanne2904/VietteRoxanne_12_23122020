@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: CustomFormat/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: CustomFormat/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Custom an integer number with his unit measure.
+ * @param { Number } number Number as an Integer.
+ * @param { String } unit Unit of the unit of measure.
+ * @returns { String } return the number and his unit as a string.
+ */
+
+export function formatUnit(number, unit) {
+  switch (unit) {
+    case 'calories':
+      return `${number.toLocaleString('en-US')}kCal`
+
+    case 'kilogram':
+      return `${number.toLocaleString('en-US')}kg`
+    case `sessionLength`:
+      return `${number.toLocaleString('en-US')} min`
+    default:
+      return `${number.toLocaleString('en-US')}g`
+  }
+}
+
+/**
+ * From performance's datas, in data's key,
+ * it custom kind key's values to string (french translation).
+ * @param { Object[] } array Array From data's key in datas.
+ * @param { Number } array[].value Number as an integer.
+ * @param { Number } array[].kind Number as an integer.
+ * @param { Object } obj Obj from kind's key in datas.
+ * @param { String } obj.kind
+ * @param { Object } datas
+ * @param { Object[] } datas.data equal to "array" from parameters.
+ * @param { Object } datas.kind equal to "obj" from parameters.
+ * @param { Number } datas.userId Number as an integer.
+ * @returns { Object } it return array[ ].kind as a String (ex: 1 became "endurance").
+ * { Object.&lt;data: Array.&lt;Object.&lt;value: Number, kind: String>, kind: Object, userId: Number>}
+ */
+
+export function formatKind(array, obj, datas) {
+  let array_arrCustomKind
+
+  array_arrCustomKind =
+    array !== undefined &amp;&amp;
+    array.map((el) => {
+      let object_objKeyKind = { ...el, key: `${obj[el.kind]}` }
+
+      switch (object_objKeyKind.key) {
+        case `cardio`:
+          return { ...object_objKeyKind, kind: 'Cardio' }
+        case `energy`:
+          return { ...object_objKeyKind, kind: 'Energie' }
+        case `endurance`:
+          return { ...object_objKeyKind, kind: 'Endurance' }
+        case `strength`:
+          return { ...object_objKeyKind, kind: 'Force' }
+        case `speed`:
+          return { ...object_objKeyKind, kind: 'Vitesse' }
+        case `intensity`:
+          return { ...object_objKeyKind, kind: 'Intensité' }
+        default:
+          return null
+      }
+    })
+
+  return (
+    datas !== undefined &amp;&amp; {
+      ...datas,
+      data: array_arrCustomKind,
+    }
+  )
+}
+
+/**
+ *
+ * @param { Number } number Number as an integer.
+ * @returns { String } current number becomes a string.
+ */
+
+export function formatDay(number) {
+  switch (number) {
+    case 1:
+      return `L`
+    case 2:
+      return `M`
+    case 3:
+      return `M`
+    case 4:
+      return `J`
+    case 5:
+      return `V`
+    case 6:
+      return `S`
+    case 7:
+      return `D`
+    default:
+      return `?`
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#Barchart">Barchart</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FormatCursor">FormatCursor</a></li><li><a href="global.html#formatDay">formatDay</a></li><li><a href="global.html#formatKind">formatKind</a></li><li><a href="global.html#formatTicks">formatTicks</a></li><li><a href="global.html#FormatTooltip">FormatTooltip</a></li><li><a href="global.html#formatUnit">formatUnit</a></li><li><a href="global.html#formatXAxis">formatXAxis</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconToNavigate">IconToNavigate</a></li><li><a href="global.html#InfosCard">InfosCard</a></li><li><a href="global.html#isMockedDatas">isMockedDatas</a></li><li><a href="global.html#itGenerateClassNamesAndGetDomProfileTag">itGenerateClassNamesAndGetDomProfileTag</a></li><li><a href="global.html#Linechart">Linechart</a></li><li><a href="global.html#LoadingSpinner">LoadingSpinner</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Radarchart">Radarchart</a></li><li><a href="global.html#Radialchart">Radialchart</a></li><li><a href="global.html#Rectangle">Rectangle</a></li><li><a href="global.html#switchProfiletagToWhite">switchProfiletagToWhite</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserActivity">UserActivity</a></li><li><a href="global.html#UserDatas">UserDatas</a></li><li><a href="global.html#VerticalLayout">VerticalLayout</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Apr 18 2022 16:44:42 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

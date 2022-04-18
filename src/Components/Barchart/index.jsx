@@ -38,8 +38,7 @@ FormatTooltip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
 }
-//--------------------------
-//--------------------------
+
 /**
  * Add "+1" to XAxis ticks in order to they start to "1" and not "0".
  * @param { Number } number_nbTicks Ticks of XAxis as an integer.
@@ -49,19 +48,12 @@ FormatTooltip.propTypes = {
 function formatXAxis(number_nbTicks) {
   return number_nbTicks + 1
 }
-//--------------------------
-//--------------------------
-/**
- * Display a Bar Chart with activity's datas from the API.
- * @return { HtmlElements } BarChart's component is displayed dynamically.
- */
-//--------------------------
-//--------------------------
+
 /**
  * It custom Tooltip's cursor.
  * @return a customized cursor as a grey rectangle.
  */
-function CustomCursor({ x, y, height, width }) {
+function FormatCursor({ x, y, height, width }) {
   // console.log(width)
   if (width >= 92) {
     return (
@@ -88,14 +80,17 @@ function CustomCursor({ x, y, height, width }) {
   }
 }
 
-CustomCursor.propTypes = {
+FormatCursor.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   height: PropTypes.number,
   width: PropTypes.number,
 }
-//--------------------------
-//--------------------------
+
+/**
+ * Display a Bar Chart with activity's datas from the API.
+ * @return { HtmlElements } BarChart's component is displayed dynamically.
+ */
 function Barchart({ datas }) {
   const { sessions } = datas !== undefined && datas
 
@@ -156,7 +151,7 @@ function Barchart({ datas }) {
 
           <Tooltip
             content={<FormatTooltip />}
-            cursor={<CustomCursor />}
+            cursor={<FormatCursor />}
             isAnimationActive={true}
           />
           <Bar
