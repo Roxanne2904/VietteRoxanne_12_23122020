@@ -37,6 +37,7 @@ Code squad:
 * have a look on endpoints of the Api --->[SportSee API-Documentation-](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#4-endpoints).
 ### 2. Launching the Application: 
 * ```cd ../``` to come back in FrontEnd-SportSee folder.
+* if dependencies are not installed do ```yarn```,
 * ```npm start``` or ```yarn start``` to run the application.
 * Be on port 3001.
 ## Figma's link
