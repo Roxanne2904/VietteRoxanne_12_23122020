@@ -47,4 +47,7 @@ Here is the link to see the KANBAN ---> [Kanban](https://www.notion.so/Tableau-d
 ## Netlify deploy-status
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1c3d9ae0-cad0-485e-a9f5-f5ee79e04674/deploy-status)](https://app.netlify.com/sites/oc-rv-sportsee/deploys)
 
-[Watch the app here! -with mocked datas-](https://oc-rv-sportsee.netlify.app/)
+[Watch the app here!](https://oc-rv-sportsee.netlify.app/)
+
+## JSDoc file
+Here is the link to see JSdoc's file ---> [JSdoc](https://roxanne2904.github.io/VietteRoxanne_12_23122020/index.html)
