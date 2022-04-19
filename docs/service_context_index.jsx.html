@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Components/VerticalLayout/index.jsx</title>
+    <title>JSDoc: Source: service/context/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Components/VerticalLayout/index.jsx</h1>
+    <h1 class="page-title">Source: service/context/index.jsx</h1>
 
     
 
@@ -26,41 +26,35 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import IconToNavigate from '../IconeToNavigate/index'
-import meditation from '../../asset/png/meditation.png'
-import swim from '../../asset/png/swim.png'
-import bodyBulding from '../../asset/png/bodyBulding.png'
-import biking from '../../asset/png/biking.png'
+            <pre class="prettyprint source linenums"><code>import React, { useState, createContext } from 'react'
+import PropType from 'prop-types'
+
+export const DatasKindContext = createContext()
 
 /**
- * Display to the left a Vertical layout with icons to navigate.
- * @return { HtmlElements } VerticalLayout's component is displayed dynamically.
+ * It setting up a provider that contains a function to toggle a state with a booleen.
+ * This state will be usefull to know which kind of datas we want to fetch.
+ * @returns { HTMLElements } DatasProvider's component with the toogle function and the state in props value.
  */
 
-function VerticalLayout() {
+export const DatasKindProvider = ({ children }) => {
+  const [booleen_boolDatasKind, setDatasKind] = useState(false)
+  const toggleDatasKind = () => {
+    setDatasKind(booleen_boolDatasKind === true ? false : true)
+  }
+
   return (
-    &lt;nav className="verticalLayout" aria-label="verticalLayout">
-      &lt;ul className="verticalLayout__ul">
-        &lt;li>
-          &lt;IconToNavigate url={`${meditation}`} name="meditation" id={1} />
-        &lt;/li>
-        &lt;li>
-          &lt;IconToNavigate url={`${swim}`} name="swim" id={2} />
-        &lt;/li>
-        &lt;li>
-          &lt;IconToNavigate url={`${biking}`} name="biking" id={4} />
-        &lt;/li>
-        &lt;li>
-          &lt;IconToNavigate url={`${bodyBulding}`} name="bodyBulding" id={3} />
-        &lt;/li>
-      &lt;/ul>
-      &lt;span className="verticalLayout__copyRights">
-        Copiryght, SportSee 2020
-      &lt;/span>
-    &lt;/nav>
+    &lt;DatasKindContext.Provider
+      value={{ booleen_boolDatasKind, toggleDatasKind }}
+    >
+      {children}
+    &lt;/DatasKindContext.Provider>
   )
 }
-export default VerticalLayout
+
+DatasKindProvider.propTypes = {
+  children: PropType.arrayOf(PropType.element).isRequired,
+}
 </code></pre>
         </article>
     </section>

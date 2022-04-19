@@ -3,6 +3,9 @@ import isMockedDatas from '../../service/handleURL/index'
 import Radarchart from '../../Components/Radarchart'
 import { formatKind } from '../../CustomFormat/index'
 import PropTypes from 'prop-types'
+//*Context-DatasProvider
+import { useContext } from 'react'
+import { DatasKindContext } from '../../service/context/index'
 
 /**
  * Fetch and modelized performance's datas.
@@ -10,9 +13,10 @@ import PropTypes from 'prop-types'
  */
 
 function Performance({ userId }) {
+  const { booleen_boolDatasKind } = useContext(DatasKindContext)
   let object_objCustomDatas
   const object_objFetchResponse = useFetch(
-    isMockedDatas(true, userId, 'performance')
+    isMockedDatas(booleen_boolDatasKind, userId, 'performance')
   )
   const { datas, isLoading, error } =
     object_objFetchResponse !== undefined && object_objFetchResponse

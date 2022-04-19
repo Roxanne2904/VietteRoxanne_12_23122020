@@ -27,6 +27,8 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { DatasKindContext } from '../../service/context/index'
 import VerticalLayout from '../../Components/VerticalLayout'
 
 /**
@@ -35,14 +37,30 @@ import VerticalLayout from '../../Components/VerticalLayout'
  */
 
 function Home() {
+  const { toggleDatasKind, booleen_boolDatasKind } =
+    useContext(DatasKindContext)
+
   return (
     &lt;main>
       &lt;VerticalLayout />
       &lt;div className="homeContent">
         &lt;h1 className="homeContent__mainTitle">
+          &lt;i className="homeContent__mainTitle__datasInfos">
+            ~ Les données sont actuellement{' '}
+            {booleen_boolDatasKind === true
+              ? ` mockées ~`
+              : ` récupérées auprès de l'API ~`}{' '}
+          &lt;/i>
           Bienvenue sur{' '}
           &lt;span className="homeContent__mainTitle__appName">SportSee&lt;/span>
         &lt;/h1>
+        &lt;button
+          className="homeContent__switchDatas"
+          onClick={() => toggleDatasKind()}
+        >
+          Lancer SportSee avec
+          {booleen_boolDatasKind === true ? ` l'API` : ` des données mockées`}
+        &lt;/button>
         &lt;h2 className="homeContent__secondaryTitle">
           Choisissez un profil à visualiser
         &lt;/h2>
@@ -69,13 +87,13 @@ export default Home
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#Barchart">Barchart</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FormatCursor">FormatCursor</a></li><li><a href="global.html#formatDay">formatDay</a></li><li><a href="global.html#formatKind">formatKind</a></li><li><a href="global.html#formatTicks">formatTicks</a></li><li><a href="global.html#FormatTooltip">FormatTooltip</a></li><li><a href="global.html#formatUnit">formatUnit</a></li><li><a href="global.html#formatXAxis">formatXAxis</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconToNavigate">IconToNavigate</a></li><li><a href="global.html#InfosCard">InfosCard</a></li><li><a href="global.html#isMockedDatas">isMockedDatas</a></li><li><a href="global.html#itGenerateClassNamesAndGetDomProfileTag">itGenerateClassNamesAndGetDomProfileTag</a></li><li><a href="global.html#Linechart">Linechart</a></li><li><a href="global.html#LoadingSpinner">LoadingSpinner</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Radarchart">Radarchart</a></li><li><a href="global.html#Radialchart">Radialchart</a></li><li><a href="global.html#Rectangle">Rectangle</a></li><li><a href="global.html#switchProfiletagToWhite">switchProfiletagToWhite</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserActivity">UserActivity</a></li><li><a href="global.html#UserDatas">UserDatas</a></li><li><a href="global.html#VerticalLayout">VerticalLayout</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AverageSessions">AverageSessions</a></li><li><a href="global.html#Barchart">Barchart</a></li><li><a href="global.html#DatasKindProvider">DatasKindProvider</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FormatCursor">FormatCursor</a></li><li><a href="global.html#formatDay">formatDay</a></li><li><a href="global.html#formatKind">formatKind</a></li><li><a href="global.html#formatTicks">formatTicks</a></li><li><a href="global.html#FormatTooltip">FormatTooltip</a></li><li><a href="global.html#formatUnit">formatUnit</a></li><li><a href="global.html#formatXaxis">formatXaxis</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#IconToNavigate">IconToNavigate</a></li><li><a href="global.html#InfosCard">InfosCard</a></li><li><a href="global.html#isMockedDatas">isMockedDatas</a></li><li><a href="global.html#itGenerateClassNamesAndGetDomProfileTag">itGenerateClassNamesAndGetDomProfileTag</a></li><li><a href="global.html#Linechart">Linechart</a></li><li><a href="global.html#LoadingSpinner">LoadingSpinner</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Radarchart">Radarchart</a></li><li><a href="global.html#Radialchart">Radialchart</a></li><li><a href="global.html#Rectangle">Rectangle</a></li><li><a href="global.html#switchProfiletagToWhite">switchProfiletagToWhite</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html#UserActivity">UserActivity</a></li><li><a href="global.html#UserDatas">UserDatas</a></li><li><a href="global.html#VerticalLayout">VerticalLayout</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Apr 18 2022 16:44:42 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Apr 19 2022 10:04:07 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -540,6 +540,12 @@ code {
 .homeContent__mainTitle__appName {
   color: #ff0101;
 }
+.homeContent__mainTitle__datasInfos {
+  display: block;
+  font-size: 0.875rem;
+  color: rgb(99, 99, 99);
+  font-weight: 500;
+}
 .homeContent__secondaryTitle {
   margin-top: 20px;
   font-size: 1.875rem;
@@ -558,6 +564,24 @@ code {
 .homeContent__profilesList__user18 {
   text-decoration: none;
   cursor: pointer;
+}
+.homeContent__switchDatas {
+  cursor: pointer;
+  margin-top: 20px;
+  color: white;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+  background-color: rgb(201, 14, 14);
+  border: 2px transparent solid;
+}
+.homeContent__switchDatas:hover {
+  color: white;
+  border: 2px #020203 solid;
+  transform: scale(1.05);
+  transition: 300ms;
+  box-shadow: 10px 5px 5px rgba(71, 29, 29, 0.555);
 }
 
 #wrapper {
@@ -580,6 +604,12 @@ code {
 }
 .userContent__mainTitle--color {
   color: #ff0101;
+}
+.userContent__mainTitle__datasInfos {
+  display: block;
+  font-size: 0.875rem;
+  color: rgb(99, 99, 99);
+  font-weight: 500;
 }
 .userContent__subTitle {
   font-weight: 500;

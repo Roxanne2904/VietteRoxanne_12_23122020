@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom'
 import PropType from 'prop-types'
-// import { useFetch } from '../../service/useFetch/index'
-// import isMockedDatas from '../../service/handleURL'
 //Components
 import VerticalLayout from '../../Components/VerticalLayout'
 import InfosCard from '../../Components/InfosCard'
@@ -23,6 +21,9 @@ import energySvg from '../../asset/svg/energySvg.svg'
 import chickenSvg from '../../asset/svg/chickenSvg.svg'
 import appleSvg from '../../asset/svg/appleSvg.svg'
 import cheeseburgerSvg from '../../asset/svg/cheeseburgerSvg.svg'
+//*Context-DatasProvider
+import { useContext } from 'react'
+import { DatasKindContext } from '../../service/context/index'
 
 /**
  * It get profile's tag as a Dom Element and it generate scss's classNames as a string.
@@ -44,6 +45,8 @@ const itGenerateClassNamesAndGetDomProfileTag = () => {
  */
 
 function User({ datas }) {
+  const { booleen_boolDatasKind } = useContext(DatasKindContext)
+  // console.log(booleen_boolDatasKind)
   const { string_strDomProfileTag, string_strClassNames } =
     itGenerateClassNamesAndGetDomProfileTag()
   string_strDomProfileTag.className = string_strClassNames
@@ -58,6 +61,12 @@ function User({ datas }) {
       <div id="wrapper">
         <div className="userContent">
           <h1 className="userContent__mainTitle">
+            <i className="userContent__mainTitle__datasInfos">
+              ~ Les données présentées sont{' '}
+              {booleen_boolDatasKind === true
+                ? ` mockées ~`
+                : ` récupérées auprès de l'API ~`}{' '}
+            </i>
             <span>{'Bonjour '}</span>
             <span className="userContent__mainTitle userContent__mainTitle--color">{`${datas[0].userInfos.firstName}`}</span>
           </h1>

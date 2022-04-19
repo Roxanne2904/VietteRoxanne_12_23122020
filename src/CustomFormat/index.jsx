@@ -2,7 +2,7 @@
  * Custom an integer number with his unit measure.
  * @param { Number } number Number as an Integer.
  * @param { String } unit Unit of the unit of measure.
- * @returns { String } return the number and his unit as a string.
+ * @returns { String } It return the number and his unit as a string.
  */
 
 export function formatUnit(number, unit) {

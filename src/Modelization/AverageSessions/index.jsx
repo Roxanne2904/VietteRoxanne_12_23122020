@@ -2,6 +2,9 @@ import Linechart from '../../Components/Linechart'
 import { useFetch } from '../../service/useFetch/index'
 import isMockedDatas from '../../service/handleURL/index'
 import PropTypes from 'prop-types'
+//*Context-DatasProvider
+import { useContext } from 'react'
+import { DatasKindContext } from '../../service/context/index'
 
 /**
  * Fetch and modelized average sessions's datas.
@@ -9,8 +12,10 @@ import PropTypes from 'prop-types'
  */
 
 function AverageSessions({ userId }) {
+  const { booleen_boolDatasKind } = useContext(DatasKindContext)
+
   const object_objFetchResponse = useFetch(
-    isMockedDatas(true, userId, 'averageSessions')
+    isMockedDatas(booleen_boolDatasKind, userId, 'averageSessions')
   )
   const { datas, isLoading, error } = object_objFetchResponse
   const { data } = datas !== undefined && datas

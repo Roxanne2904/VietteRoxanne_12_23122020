@@ -45,7 +45,7 @@ FormatTooltip.propTypes = {
  * @returns { Number } current tick + 1
  */
 
-function formatXAxis(number_nbTicks) {
+function formatXaxis(number_nbTicks) {
   return number_nbTicks + 1
 }
 
@@ -128,7 +128,7 @@ function Barchart({ datas }) {
             vertical={false}
           />
           <XAxis
-            tickFormatter={formatXAxis}
+            tickFormatter={formatXaxis}
             axisLine={false}
             tickLine={false}
             tickSize={20}

@@ -16,6 +16,12 @@
     &--color {
       color: $colorPrimary;
     }
+    &__datasInfos {
+      display: block;
+      font-size: $XsmallSize;
+      color: rgb(99, 99, 99);
+      font-weight: $mainWeight;
+    }
   }
   &__subTitle {
     font-weight: $mainWeight;

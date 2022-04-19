@@ -5,6 +5,9 @@ import { formatUnit } from '../../CustomFormat'
 import User from '../../Pages/User/index'
 import Error from '../../Pages/Error'
 import LoadingSpinner from '../../Pages/LoadingSpinner/index'
+//*Context-DatasProvider
+import { useContext } from 'react'
+import { DatasKindContext } from '../../service/context/index'
 
 /**
  * Fetch and modelized user's datas.
@@ -12,10 +15,14 @@ import LoadingSpinner from '../../Pages/LoadingSpinner/index'
  */
 
 function UserDatas() {
+  const { booleen_boolDatasKind } = useContext(DatasKindContext)
+  console.log(booleen_boolDatasKind)
   let array_arrUserDatas = []
   const { id } = useParams()
 
-  const fetchResponse = useFetch(isMockedDatas(true, id, 'userDatas'))
+  const fetchResponse = useFetch(
+    isMockedDatas(booleen_boolDatasKind, id, 'userDatas')
+  )
   const { datas, isLoading, error } = fetchResponse
 
   const isDatasGet = datas.data !== undefined && datas.error !== true

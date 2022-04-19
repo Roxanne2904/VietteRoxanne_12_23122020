@@ -34,7 +34,7 @@ Code squad:
 * if dependencies are not installed do ```yarn```,
 * Then ```yarn dev``` or ```npm start``` to run the micro Api.
 * Be on port 3000.
-* have a look on endpoints of the Api --->[SportSee API-Documentation-](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#4-endpoints).
+* have a look on endpoints of the Api ---> [SportSee API-Documentation-](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#4-endpoints) <---
 ### 2. Launching the Application: 
 * ```cd ../``` to come back in FrontEnd-SportSee folder.
 * if dependencies are not installed do ```yarn```,
@@ -50,4 +50,4 @@ Here is the link to see the KANBAN ---> [Kanban](https://www.notion.so/Tableau-d
 [Watch the app here!](https://oc-rv-sportsee.netlify.app/)
 
 ## JSDoc file
-Here is the link to see JSdoc's file ---> [JSdoc](https://roxanne2904.github.io/VietteRoxanne_12_23122020/index.html)
+Here is the link to see JSdoc's file ---> [JSdoc](https://roxanne2904.github.io/VietteRoxanne_12_23122020/index.html) <---

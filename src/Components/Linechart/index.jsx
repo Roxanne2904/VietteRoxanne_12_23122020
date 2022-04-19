@@ -94,7 +94,7 @@ function Linechart({ datas }) {
             cursor={false}
             wrapperStyle={{ top: -55, left: -7 }}
           />
-          <XAxis dataKey="day" scale="none" hide={true} />
+          <XAxis dataKey="day" scale="band" hide={true} />
           <XAxis
             dataKey="day"
             scale="band"

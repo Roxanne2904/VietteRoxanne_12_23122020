@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom'
 import VerticalLayout from '../../Components/VerticalLayout/index'
-// import LoadingSpinner from '../../Components/LoadingSpinner/index'
 
 /**
  * Display error's page.
@@ -28,6 +27,7 @@ function Error() {
    * It Change the Url Path on Click.
    * @returns An Url path.
    */
+
   const changeUrlPath = () => {
     console.log(window.location.pathname)
     if (window.location.pathname === `/error`) {

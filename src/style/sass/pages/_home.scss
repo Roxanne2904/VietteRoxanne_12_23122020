@@ -6,6 +6,12 @@
     &__appName {
       color: $colorPrimary;
     }
+    &__datasInfos {
+      display: block;
+      font-size: $XsmallSize;
+      color: rgb(99, 99, 99);
+      font-weight: $mainWeight;
+    }
   }
   &__secondaryTitle {
     margin-top: 20px;
@@ -25,6 +31,24 @@
     &__user18 {
       text-decoration: none;
       cursor: pointer;
+    }
+  }
+  &__switchDatas {
+    cursor: pointer;
+    margin-top: 20px;
+    color: white;
+    font-size: $XsmallSize;
+    border: none;
+    border-radius: $mainRadius;
+    padding: 7px;
+    background-color: rgb(201, 14, 14);
+    border: 2px transparent solid;
+    &:hover {
+      color: white;
+      border: 2px $bgdColor solid;
+      transform: scale(1.05);
+      transition: 300ms;
+      box-shadow: 10px 5px 5px rgba(71, 29, 29, 0.555);
     }
   }
 }
