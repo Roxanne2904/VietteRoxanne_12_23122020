@@ -3,6 +3,8 @@
 # SportSee's Project
 *Openclassrooms's training P12.*
 **Creating the user's profile page for the SportSee Application.**
+## I started this project on 18/02/2022
+*Training begins on 23/12/2020*
 ***
 ## Prerequisites
 
